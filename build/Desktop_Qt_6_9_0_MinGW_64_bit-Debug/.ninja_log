@@ -1,21 +1,9 @@
 # ninja log v6
-13	878	7687387618485919	PhotoShop-Lite_autogen/timestamp	eb4905cdfec29c5f
-13	878	7687387618485919	PhotoShop-Lite_autogen/mocs_compilation.cpp	eb4905cdfec29c5f
-13	878	7687387618485919	C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/PhotoShop-Lite_autogen/timestamp	eb4905cdfec29c5f
-13	878	7687387618485919	C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/PhotoShop-Lite_autogen/mocs_compilation.cpp	eb4905cdfec29c5f
-885	3388	7687387619381279	CMakeFiles/PhotoShop-Lite.dir/PhotoShop-Lite_autogen/mocs_compilation.cpp.obj	5a642a5997d847e9
-888	3496	7687387619411243	CMakeFiles/PhotoShop-Lite.dir/main.cpp.obj	3643ddb33d0865b8
-891	3569	7687387619441240	CMakeFiles/PhotoShop-Lite.dir/mainwindow.cpp.obj	34e3b39c7da0bd3d
-3569	3797	7687387646218662	PhotoShop-Lite.exe	8ce686027b37a9e7
-28	217	7687402149055875	PhotoShop-Lite_autogen/timestamp	eb4905cdfec29c5f
-28	217	7687402149055875	PhotoShop-Lite_autogen/mocs_compilation.cpp	eb4905cdfec29c5f
-28	217	7687402149055875	C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/PhotoShop-Lite_autogen/timestamp	eb4905cdfec29c5f
-28	217	7687402149055875	C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/PhotoShop-Lite_autogen/mocs_compilation.cpp	eb4905cdfec29c5f
-218	2805	7687402150961479	CMakeFiles/PhotoShop-Lite.dir/mainwindow.cpp.obj	34e3b39c7da0bd3d
-2805	3034	7687402176825303	PhotoShop-Lite.exe	8ce686027b37a9e7
 19	202	7687402448418826	PhotoShop-Lite_autogen/timestamp	eb4905cdfec29c5f
+885	3388	7687387619381279	CMakeFiles/PhotoShop-Lite.dir/PhotoShop-Lite_autogen/mocs_compilation.cpp.obj	5a642a5997d847e9
 19	202	7687402448418826	PhotoShop-Lite_autogen/mocs_compilation.cpp	eb4905cdfec29c5f
 19	202	7687402448418826	C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/PhotoShop-Lite_autogen/timestamp	eb4905cdfec29c5f
 19	202	7687402448418826	C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/PhotoShop-Lite_autogen/mocs_compilation.cpp	eb4905cdfec29c5f
 203	2810	7687402450268816	CMakeFiles/PhotoShop-Lite.dir/mainwindow.cpp.obj	34e3b39c7da0bd3d
+888	3496	7687387619411243	CMakeFiles/PhotoShop-Lite.dir/main.cpp.obj	3643ddb33d0865b8
 2810	3038	7687402476339056	PhotoShop-Lite.exe	8ce686027b37a9e7
