@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-2c4014a326ad79722d5f.json",
+					"jsonFile" : "directory-.-Debug-dcbdd12c09618eae81a4.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -44,7 +44,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "PhotoShop-Lite::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-PhotoShop-Lite-Debug-dd822482d70735dfe4ce.json",
+					"jsonFile" : "target-PhotoShop-Lite-Debug-1d2ae88f1b2164544299.json",
 					"name" : "PhotoShop-Lite",
 					"projectIndex" : 0
 				},

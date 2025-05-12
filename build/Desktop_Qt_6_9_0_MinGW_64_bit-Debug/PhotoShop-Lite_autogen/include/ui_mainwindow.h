@@ -17,6 +17,7 @@
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -25,7 +26,12 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QPushButton *pushButton;
+    QWidget *widget;
+    QVBoxLayout *verticalLayout;
+    QPushButton *mode1Btn;
+    QPushButton *mode2Btn;
+    QPushButton *mode3Btn;
+    QPushButton *mode4Btn;
     QMenuBar *menubar;
     QMenu *menuPhotoShop_Lite;
     QStatusBar *statusbar;
@@ -34,16 +40,39 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(800, 600);
+        MainWindow->resize(899, 548);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
-        pushButton = new QPushButton(centralwidget);
-        pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(20, 470, 80, 24));
+        widget = new QWidget(centralwidget);
+        widget->setObjectName("widget");
+        widget->setGeometry(QRect(20, 20, 82, 191));
+        verticalLayout = new QVBoxLayout(widget);
+        verticalLayout->setObjectName("verticalLayout");
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        mode1Btn = new QPushButton(widget);
+        mode1Btn->setObjectName("mode1Btn");
+
+        verticalLayout->addWidget(mode1Btn);
+
+        mode2Btn = new QPushButton(widget);
+        mode2Btn->setObjectName("mode2Btn");
+
+        verticalLayout->addWidget(mode2Btn);
+
+        mode3Btn = new QPushButton(widget);
+        mode3Btn->setObjectName("mode3Btn");
+
+        verticalLayout->addWidget(mode3Btn);
+
+        mode4Btn = new QPushButton(widget);
+        mode4Btn->setObjectName("mode4Btn");
+
+        verticalLayout->addWidget(mode4Btn);
+
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 800, 21));
+        menubar->setGeometry(QRect(0, 0, 899, 21));
         menuPhotoShop_Lite = new QMenu(menubar);
         menuPhotoShop_Lite->setObjectName("menuPhotoShop_Lite");
         MainWindow->setMenuBar(menubar);
@@ -61,7 +90,10 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWindow", "ceshi1", nullptr));
+        mode1Btn->setText(QString());
+        mode2Btn->setText(QCoreApplication::translate("MainWindow", "2", nullptr));
+        mode3Btn->setText(QCoreApplication::translate("MainWindow", "3", nullptr));
+        mode4Btn->setText(QCoreApplication::translate("MainWindow", "4", nullptr));
         menuPhotoShop_Lite->setTitle(QCoreApplication::translate("MainWindow", "PhotoShop Lite", nullptr));
     } // retranslateUi
 

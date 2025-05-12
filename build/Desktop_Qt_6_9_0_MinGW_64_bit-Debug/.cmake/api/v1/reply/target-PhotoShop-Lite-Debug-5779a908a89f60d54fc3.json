@@ -75,13 +75,13 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 62,
+				"line" : 64,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 45,
+				"line" : 47,
 				"parent" : 0
 			},
 			{
@@ -364,7 +364,8 @@
 			[
 				0,
 				1,
-				2
+				2,
+				10
 			]
 		}
 	],
@@ -487,7 +488,8 @@
 			[
 				0,
 				1,
-				2
+				2,
+				10
 			]
 		},
 		{
@@ -495,7 +497,7 @@
 			"sourceIndexes" : 
 			[
 				3,
-				5
+				8
 			]
 		},
 		{
@@ -506,17 +508,27 @@
 			]
 		},
 		{
+			"name" : "Resources",
+			"sourceIndexes" : 
+			[
+				5,
+				6,
+				7
+			]
+		},
+		{
 			"name" : "",
 			"sourceIndexes" : 
 			[
-				6
+				9
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				7
+				11,
+				12
 			]
 		}
 	],
@@ -552,6 +564,21 @@
 			"sourceGroupIndex" : 2
 		},
 		{
+			"backtrace" : 4,
+			"path" : "res.qrc",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"path" : "Icon/star.png",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"path" : "Icon/waiting.png",
+			"sourceGroupIndex" : 3
+		},
+		{
 			"backtrace" : 0,
 			"isGenerated" : true,
 			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/PhotoShop-Lite_autogen/include/ui_mainwindow.h",
@@ -561,13 +588,26 @@
 			"backtrace" : 0,
 			"isGenerated" : true,
 			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/PhotoShop-Lite_autogen/timestamp",
-			"sourceGroupIndex" : 3
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 0,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/PhotoShop-Lite_autogen/EWIEGA46WW/qrc_res.cpp",
+			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
 			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/PhotoShop-Lite_autogen/timestamp.rule",
-			"sourceGroupIndex" : 4
+			"sourceGroupIndex" : 5
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/PhotoShop-Lite_autogen/EWIEGA46WW/qrc_res.cpp.rule",
+			"sourceGroupIndex" : 5
 		}
 	],
 	"type" : "EXECUTABLE"
