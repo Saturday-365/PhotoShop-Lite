@@ -21,7 +21,7 @@ public:
 
 
  private:
-
+    void setBackGround(const QString & filename);
     void setButtonStyle(QPushButton * button , const QString & filename);//设置按钮样式
     void initButtons();//初始化所有按钮
 

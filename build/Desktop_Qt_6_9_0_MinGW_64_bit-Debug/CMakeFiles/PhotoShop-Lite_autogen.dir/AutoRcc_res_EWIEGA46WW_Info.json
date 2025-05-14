@@ -7,16 +7,21 @@
 	"CROSS_CONFIG" : false,
 	"GENERATOR" : "Ninja",
 	"INCLUDE_DIR" : "C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/PhotoShop-Lite_autogen/include",
-	"INPUTS" : [],
-	"LOCK_FILE" : "C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/PhotoShop-Lite_autogen.dir/AutoRcc_res_EWIEGA46WW_Lock.lock",
+	"INPUTS" : 
+	[
+		"C:/QT_Program/PhotoShop-Lite/Icon/wating.png",
+		"C:/QT_Program/PhotoShop-Lite/Icon/star.png",
+		"C:/QT_Program/PhotoShop-Lite/Picture/mclaren senna wallpaper.jpg"
+	],
+	"LOCK_FILE" : "C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/PhotoShop-Lite_autogen.dir/AutoRcc_Res_EWIEGA46WW_Lock.lock",
 	"MULTI_CONFIG" : false,
-	"OPTIONS" : [ "--no-zstd", "-name", "res" ],
+	"OPTIONS" : [ "--no-zstd", "-name", "Res" ],
 	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
-	"OUTPUT_NAME" : "qrc_res.cpp",
+	"OUTPUT_NAME" : "qrc_Res.cpp",
 	"RCC_EXECUTABLE" : "C:/Qt/6.9.0/mingw_64/bin/rcc.exe",
 	"RCC_LIST_OPTIONS" : [ "--list" ],
-	"SETTINGS_FILE" : "C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/PhotoShop-Lite_autogen.dir/AutoRcc_res_EWIEGA46WW_Used.txt",
-	"SOURCE" : "C:/QT_Program/PhotoShop-Lite/res.qrc",
+	"SETTINGS_FILE" : "C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/PhotoShop-Lite_autogen.dir/AutoRcc_Res_EWIEGA46WW_Used.txt",
+	"SOURCE" : "C:/QT_Program/PhotoShop-Lite/Res.qrc",
 	"USE_BETTER_GRAPH" : true,
 	"VERBOSITY" : 0
 }

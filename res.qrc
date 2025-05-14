@@ -1,1 +1,7 @@
-<RCC/>
+<RCC>
+    <qresource prefix="/">
+        <file>Icon/star.png</file>
+        <file>Icon/wating.png</file>
+        <file>Picture/mclaren senna wallpaper.jpg</file>
+    </qresource>
+</RCC>

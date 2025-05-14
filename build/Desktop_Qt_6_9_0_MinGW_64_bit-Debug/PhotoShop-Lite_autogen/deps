@@ -1,5 +1,6 @@
 PhotoShop-Lite_autogen/timestamp: \
 	C:/QT_Program/PhotoShop-Lite/CMakeLists.txt \
+	C:/QT_Program/PhotoShop-Lite/Res.qrc \
 	C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/.qtc/package-manager/auto-setup.cmake \
 	C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeCXXCompiler.cmake \
 	C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeRCCompiler.cmake \
@@ -8,7 +9,6 @@ PhotoShop-Lite_autogen/timestamp: \
 	C:/QT_Program/PhotoShop-Lite/main.cpp \
 	C:/QT_Program/PhotoShop-Lite/mainwindow.cpp \
 	C:/QT_Program/PhotoShop-Lite/mainwindow.h \
-	C:/QT_Program/PhotoShop-Lite/res.qrc \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/QString \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/q17memory.h \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/q20functional.h \

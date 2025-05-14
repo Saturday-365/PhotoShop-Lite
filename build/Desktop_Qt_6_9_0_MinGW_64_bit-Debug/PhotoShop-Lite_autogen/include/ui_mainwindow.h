@@ -45,7 +45,7 @@ public:
         centralwidget->setObjectName("centralwidget");
         widget = new QWidget(centralwidget);
         widget->setObjectName("widget");
-        widget->setGeometry(QRect(20, 20, 161, 351));
+        widget->setGeometry(QRect(40, 80, 161, 351));
         verticalLayout = new QVBoxLayout(widget);
         verticalLayout->setObjectName("verticalLayout");
         verticalLayout->setContentsMargins(0, 0, 0, 0);
