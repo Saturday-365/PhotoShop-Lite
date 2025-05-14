@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
@@ -26,12 +27,13 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QVBoxLayout *verticalLayout;
     QPushButton *mode1Btn;
     QPushButton *mode2Btn;
     QPushButton *mode3Btn;
     QPushButton *mode4Btn;
+    QLabel *label;
     QMenuBar *menubar;
     QMenu *menuPhotoShop_Lite;
     QStatusBar *statusbar;
@@ -43,37 +45,40 @@ public:
         MainWindow->resize(899, 548);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
-        widget = new QWidget(centralwidget);
-        widget->setObjectName("widget");
-        widget->setGeometry(QRect(40, 80, 161, 351));
-        verticalLayout = new QVBoxLayout(widget);
+        layoutWidget = new QWidget(centralwidget);
+        layoutWidget->setObjectName("layoutWidget");
+        layoutWidget->setGeometry(QRect(20, 70, 161, 351));
+        verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setObjectName("verticalLayout");
         verticalLayout->setContentsMargins(0, 0, 0, 0);
-        mode1Btn = new QPushButton(widget);
+        mode1Btn = new QPushButton(layoutWidget);
         mode1Btn->setObjectName("mode1Btn");
         mode1Btn->setEnabled(true);
         mode1Btn->setIconSize(QSize(136, 48));
 
         verticalLayout->addWidget(mode1Btn);
 
-        mode2Btn = new QPushButton(widget);
+        mode2Btn = new QPushButton(layoutWidget);
         mode2Btn->setObjectName("mode2Btn");
         mode2Btn->setIconSize(QSize(136, 48));
 
         verticalLayout->addWidget(mode2Btn);
 
-        mode3Btn = new QPushButton(widget);
+        mode3Btn = new QPushButton(layoutWidget);
         mode3Btn->setObjectName("mode3Btn");
         mode3Btn->setIconSize(QSize(136, 48));
 
         verticalLayout->addWidget(mode3Btn);
 
-        mode4Btn = new QPushButton(widget);
+        mode4Btn = new QPushButton(layoutWidget);
         mode4Btn->setObjectName("mode4Btn");
         mode4Btn->setIconSize(QSize(136, 48));
 
         verticalLayout->addWidget(mode4Btn);
 
+        label = new QLabel(centralwidget);
+        label->setObjectName("label");
+        label->setGeometry(QRect(210, 70, 640, 360));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -99,6 +104,7 @@ public:
         mode2Btn->setText(QString());
         mode3Btn->setText(QString());
         mode4Btn->setText(QString());
+        label->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         menuPhotoShop_Lite->setTitle(QCoreApplication::translate("MainWindow", "PhotoShop Lite", nullptr));
     } // retranslateUi
 
