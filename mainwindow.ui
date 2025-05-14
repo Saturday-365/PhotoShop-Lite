@@ -19,36 +19,63 @@
      <rect>
       <x>20</x>
       <y>20</y>
-      <width>82</width>
-      <height>191</height>
+      <width>161</width>
+      <height>351</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <widget class="QPushButton" name="mode1Btn">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
        <property name="text">
         <string/>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>136</width>
+         <height>48</height>
+        </size>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="mode2Btn">
        <property name="text">
-        <string>2</string>
+        <string/>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>136</width>
+         <height>48</height>
+        </size>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="mode3Btn">
        <property name="text">
-        <string>3</string>
+        <string/>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>136</width>
+         <height>48</height>
+        </size>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="mode4Btn">
        <property name="text">
-        <string>4</string>
+        <string/>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>136</width>
+         <height>48</height>
+        </size>
        </property>
       </widget>
      </item>

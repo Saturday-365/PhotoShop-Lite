@@ -9,6 +9,7 @@ PhotoShop-Lite_autogen/timestamp: \
 	C:/QT_Program/PhotoShop-Lite/mainwindow.cpp \
 	C:/QT_Program/PhotoShop-Lite/mainwindow.h \
 	C:/QT_Program/PhotoShop-Lite/res.qrc \
+	C:/Qt/6.9.0/mingw_64/include/QtCore/QString \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/q17memory.h \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/q20functional.h \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/q20iterator.h \
@@ -161,7 +162,10 @@ PhotoShop-Lite_autogen/timestamp: \
 	C:/Qt/6.9.0/mingw_64/include/QtGui/qwindowdefs.h \
 	C:/Qt/6.9.0/mingw_64/include/QtGui/qwindowdefs_win.h \
 	C:/Qt/6.9.0/mingw_64/include/QtWidgets/QMainWindow \
+	C:/Qt/6.9.0/mingw_64/include/QtWidgets/QPushButton \
+	C:/Qt/6.9.0/mingw_64/include/QtWidgets/qabstractbutton.h \
 	C:/Qt/6.9.0/mingw_64/include/QtWidgets/qmainwindow.h \
+	C:/Qt/6.9.0/mingw_64/include/QtWidgets/qpushbutton.h \
 	C:/Qt/6.9.0/mingw_64/include/QtWidgets/qsizepolicy.h \
 	C:/Qt/6.9.0/mingw_64/include/QtWidgets/qtabwidget.h \
 	C:/Qt/6.9.0/mingw_64/include/QtWidgets/qtwidgets-config.h \

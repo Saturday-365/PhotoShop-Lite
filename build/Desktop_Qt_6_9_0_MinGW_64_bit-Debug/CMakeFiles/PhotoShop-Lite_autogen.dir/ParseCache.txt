@@ -3,6 +3,7 @@ C:/QT_Program/PhotoShop-Lite/mainwindow.h
  mmc:Q_OBJECT
  mdp:C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/PhotoShop-Lite_autogen/moc_predefs.h
  mdp:C:/QT_Program/PhotoShop-Lite/mainwindow.h
+ mdp:C:/Qt/6.9.0/mingw_64/include/QtCore/QString
  mdp:C:/Qt/6.9.0/mingw_64/include/QtCore/q17memory.h
  mdp:C:/Qt/6.9.0/mingw_64/include/QtCore/q20functional.h
  mdp:C:/Qt/6.9.0/mingw_64/include/QtCore/q20iterator.h
@@ -155,7 +156,10 @@ C:/QT_Program/PhotoShop-Lite/mainwindow.h
  mdp:C:/Qt/6.9.0/mingw_64/include/QtGui/qwindowdefs.h
  mdp:C:/Qt/6.9.0/mingw_64/include/QtGui/qwindowdefs_win.h
  mdp:C:/Qt/6.9.0/mingw_64/include/QtWidgets/QMainWindow
+ mdp:C:/Qt/6.9.0/mingw_64/include/QtWidgets/QPushButton
+ mdp:C:/Qt/6.9.0/mingw_64/include/QtWidgets/qabstractbutton.h
  mdp:C:/Qt/6.9.0/mingw_64/include/QtWidgets/qmainwindow.h
+ mdp:C:/Qt/6.9.0/mingw_64/include/QtWidgets/qpushbutton.h
  mdp:C:/Qt/6.9.0/mingw_64/include/QtWidgets/qsizepolicy.h
  mdp:C:/Qt/6.9.0/mingw_64/include/QtWidgets/qtabwidget.h
  mdp:C:/Qt/6.9.0/mingw_64/include/QtWidgets/qtwidgets-config.h
@@ -373,6 +377,6 @@ C:/QT_Program/PhotoShop-Lite/mainwindow.h
  mdp:C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h
  mdp:C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h
+C:/QT_Program/PhotoShop-Lite/main.cpp
 C:/QT_Program/PhotoShop-Lite/mainwindow.cpp
  uic:./ui_mainwindow.h
-C:/QT_Program/PhotoShop-Lite/main.cpp
