@@ -9,7 +9,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     setWindowTitle("PhotoShop Lite"); //设置窗口标题
-    //setBackGround();
+    setFixedSize(960,540);
+    setBackGround(":/Picture/mclaren senna wallpaper.jpg"); //设置背景
     initButtons();
 
 }
@@ -17,9 +18,8 @@ void MainWindow::setBackGround(const QString & filename)
 {
     QPixmap pixmap(filename);//创建照片
     QSize windowsSize = this->size(); // 获取当前窗口大小
-    //QPalette::Window
-    QPixmap scalePixmap = pixmap.scaled(windowsSize,Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
-    QPalette palette = this->palette();
+    QPixmap scalePixmap = pixmap.scaled(windowsSize,Qt::IgnoreAspectRatio,Qt::SmoothTransformation); //讲图片所放到当前窗口的大小
+    QPalette palette = this->palette();   //创建pattle对象并设置背景照片 调色板
     palette.setBrush(QPalette::Window,QBrush(scalePixmap));
     this->setPalette(palette);
 }
