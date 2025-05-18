@@ -333,6 +333,12 @@
 	"HEADERS" : 
 	[
 		[
+			"C:/QT_Program/PhotoShop-Lite/SourseLib/BMP_Process.h",
+			"MU",
+			"E6ECIWQUNO/moc_BMP_Process.cpp",
+			null
+		],
+		[
 			"C:/QT_Program/PhotoShop-Lite/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
@@ -410,6 +416,7 @@
 	"SETTINGS_FILE" : "C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/PhotoShop-Lite_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[ "C:/QT_Program/PhotoShop-Lite/SourseLib/BMP_Process.cpp", "MU", null ],
 		[ "C:/QT_Program/PhotoShop-Lite/main.cpp", "MU", null ],
 		[ "C:/QT_Program/PhotoShop-Lite/mainwindow.cpp", "MU", null ]
 	],

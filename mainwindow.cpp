@@ -16,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
     initButtons();
     connect(ui->mode1Btn,&QPushButton::clicked,this,&MainWindow::Button_OpenFile);
 }
+
 void MainWindow::setBackGround(const QString & filename)
 {
     QPixmap pixmap(filename);//创建照片
@@ -26,11 +27,10 @@ void MainWindow::setBackGround(const QString & filename)
     this->setPalette(palette);   //将调色板应用到windows
 }
 
-
 void MainWindow::setButtonStyle(QPushButton * button , const QString & filename)
 {
     button->setFixedSize(136,48);//设置按钮大小
-    button->setIcon(QIcon(filename));//设置按钮图标  目前只有这个绝对地址有效 相对地址没有效果不知道为什么
+    button->setIcon(QIcon(filename));//设置按钮图标
     button->setIconSize(QSize(button->width(),button->height()));//设置按钮图标大小
     button->setStyleSheet("background-color:transparent");
 }
@@ -42,8 +42,8 @@ void MainWindow::initButtons()
     setButtonStyle(ui->mode4Btn, ":/Icon/wating.png");
 
 }
-void MainWindow::Button_OpenFile(){
-    QString FilePath=QFileDialog::getOpenFileName(this,"OpenPicture-File",":/Picture","img(*.bmp *.png *.jpg)");
+QString MainWindow::Button_OpenFile(){
+    QString FilePath=QFileDialog::getOpenFileName(this,"OpenPicture-File",":/Picture","BMP-img(*.bmp)");
 
     if(!FilePath.isNull()){
         QPixmap pixmapin(FilePath);
@@ -53,6 +53,8 @@ void MainWindow::Button_OpenFile(){
         //QPixmap scalePixmap = pixmapin.scaled(ui->label->size(),Qt::IgnoreAspectRatio,Qt::SmoothTransformation); //讲图片所放到当前窗口的大小
         ui->label->setPixmap(pixmapin.scaled(ui->label->size(),Qt::IgnoreAspectRatio,Qt::SmoothTransformation));
     }
+
+    return FilePath;
 }
 
 void MainWindow::setPicWindow(QLabel *imageLabel,QPixmap *pixmap)

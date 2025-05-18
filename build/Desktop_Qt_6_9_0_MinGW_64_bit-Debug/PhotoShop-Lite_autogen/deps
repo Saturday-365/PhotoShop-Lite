@@ -1,6 +1,8 @@
 PhotoShop-Lite_autogen/timestamp: \
 	C:/QT_Program/PhotoShop-Lite/CMakeLists.txt \
 	C:/QT_Program/PhotoShop-Lite/Res.qrc \
+	C:/QT_Program/PhotoShop-Lite/SourseLib/BMP_Process.cpp \
+	C:/QT_Program/PhotoShop-Lite/SourseLib/BMP_Process.h \
 	C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/.qtc/package-manager/auto-setup.cmake \
 	C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeCXXCompiler.cmake \
 	C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeRCCompiler.cmake \
