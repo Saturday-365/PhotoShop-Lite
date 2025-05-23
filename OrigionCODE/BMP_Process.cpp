@@ -7,84 +7,61 @@
 #include <math.h>
 #include <string>
 #include <vector>
-
 using namespace std;
+typedef unsigned char uint8;
+typedef unsigned short uint16;
+typedef unsigned long uint32;
+#define M_PI 3.1415926; // 定义圆周率常量
 
-typedef unsigned char uint8;   // 一个字节
-typedef unsigned short uint16; // 两个字节
-typedef unsigned long uint32;  // 四个字节
-#define M_PI 3.1415926;
-// 读取BMP图像信息
 void readBMPInfo(const char *name, uint32 &width, uint32 &height,
                  uint32 &data_offset, uint32 &data_size, uint8 *&data) {
-  fstream bmpr;
-  bmpr.open(name, ios::binary | ios::in); // 读取文件模式为二进制 只读
-  if (bmpr.fail()) {                      // 终止程序
+  fstream bmpdata;
+
+  bmpdata.open(name, ios::binary | ios::in); // 以二进制只读模式打开文件
+  if (bmpdata.fail()) {                      // 检查文件是否打开失败
     cout << "原始图像读取失败";
-    exit(1);
+    exit(1); // 若失败则退出程序
   }
-
-  // 读取原始图像的宽度（像素数）
-  bmpr.seekg(18, ios::beg);
-  bmpr.read((char *)(&width), sizeof(width));
-
-  // 读取原始图像的高度（像素数）
-  bmpr.seekg(22, ios::beg);
-  bmpr.read((char *)(&height), sizeof(height));
-
-  // 读取原始图像的数据偏移量
-  bmpr.seekg(10, ios::beg);
-  bmpr.read((char *)(&data_offset), sizeof(data_offset));
-
-  // 读取原始图像的数据大小
-  bmpr.seekg(34, ios::beg);
-  bmpr.read((char *)(&data_size), sizeof(data_size));
-
-  // 读取原始图像的数据内容
+  bmpdata.seekg(18, ios::beg);
+  bmpdata.read((char *)(&width), sizeof(width));
+  bmpdata.seekg(22, ios::beg);
+  bmpdata.read((char *)(&height), sizeof(height));
+  bmpdata.seekg(10, ios::beg);
+  bmpdata.read((char *)(&data_offset), sizeof(data_offset));
+  bmpdata.seekg(34, ios::beg);
+  bmpdata.read((char *)(&data_size), sizeof(data_size));
   data = new uint8[data_size];
-  bmpr.seekg(data_offset, ios::beg);
-  bmpr.read((char *)data, data_size);
-
-  bmpr.close();
+  bmpdata.seekg(data_offset, ios::beg);
+  bmpdata.read((char *)data, data_size);
+  bmpdata.close(); // 关闭文件
 }
 
-// 写入BMP图像信息
+// 写入BMP图像信息的函数
 void writeBMPInfo(const char *new_name, uint32 width, uint32 height,
                   uint32 data_offset, uint32 data_size, uint8 *data,
                   const char *old_name) {
   fstream bmpw;
-  bmpw.open(new_name, ios::binary | ios::out);
-  if (bmpw.fail()) {
+  bmpw.open(new_name, ios::binary | ios::out); // 以二进制写模式打开文件
+  if (bmpw.fail()) {                           // 检查文件是否打开失败
     cout << "新图像写入失败";
-    exit(1); // 终止程序
+    exit(1); // 若失败则退出程序
   }
-
-  // 复制原始图像的文件头和信息头
-  fstream bmpr;
-  bmpr.open(old_name, ios::binary | ios::in);
+  fstream bmpdata;
+  bmpdata.open(old_name, ios::binary | ios::in);
   uint8 *tmp = new uint8[data_offset];
-  bmpr.seekg(0, ios::beg);
-  bmpr.read((char *)tmp, data_offset);
+  bmpdata.seekg(0, ios::beg);
+  bmpdata.read((char *)tmp, data_offset);
   bmpw.write((char *)tmp, data_offset);
-  delete[] tmp;
-  bmpr.close();
-
-  // 写入新图像的宽度（像素数）
+  delete[] tmp;    // 释放临时内存
+  bmpdata.close(); // 关闭原始文件
   bmpw.seekp(18, ios::beg);
   bmpw.write((char *)(&width), sizeof(width));
-
-  // 写入新图像的高度（像素数）
   bmpw.seekp(22, ios::beg);
   bmpw.write((char *)(&height), sizeof(height));
-
-  // 写入新图像的数据大小
   bmpw.seekp(34, ios::beg);
   bmpw.write((char *)(&data_size), sizeof(data_size));
-
-  // 写入新图像的数据内容
   bmpw.seekp(data_offset, ios::beg);
   bmpw.write((char *)data, data_size);
-
   bmpw.close();
 }
 
@@ -97,52 +74,73 @@ void medianFilter(const char *name, const char *new_name) {
   uint32 num_width = data_size / height;
   uint8 *new_data = new uint8[data_size];
   memcpy(new_data, data, data_size);
-
+  const int FILTER_SIZE = 25;
+  uint8 values[FILTER_SIZE]; // 5x5邻域
   for (int i = 2; i < height - 2; i++) {
     for (int j = 2; j < width - 2; j++) {
       for (int c = 0; c < 3; c++) {
-        vector<uint8> values;
+        // 收集邻域像素值到数组
+        int index = 0;
         for (int x = -2; x <= 2; x++) {
           for (int y = -2; y <= 2; y++) {
-            values.push_back(*(data + (i + x) * num_width + (j + y) * 3 + c));
+            values[index++] = *(data + (i + x) * num_width + (j + y) * 3 + c);
           }
         }
-        sort(values.begin(), values.end());
+        // 使用冒泡排序
+        for (int pass = 0; pass < FILTER_SIZE - 1; pass++) {
+          for (int k = 0; k < FILTER_SIZE - pass - 1; k++) {
+            if (values[k] > values[k + 1]) {
+              uint8 temp = values[k];
+              values[k] = values[k + 1];
+              values[k + 1] = temp;
+            }
+          }
+        }
+        // 对应像素位取中值
         *(new_data + i * num_width + j * 3 + c) = values[12];
       }
     }
   }
-
   writeBMPInfo(new_name, width, height, data_offset, data_size, new_data, name);
   delete[] data;
   delete[] new_data;
 }
 
-// 图像缩小
+// 图像缩小函数
 void shrinkImage(const char *name, const char *new_name, double ratio) {
   uint32 width, height, data_offset, data_size;
   uint8 *data;
   readBMPInfo(name, width, height, data_offset, data_size, data);
 
+  // 计算缩小后的图像大小
   uint32 new_width = static_cast<uint32>(width * ratio);
   uint32 new_height = static_cast<uint32>(height * ratio);
-  uint32 num_width = data_size / height;
-  uint32 new_num_width = 4 * ceil(new_width * 3.0 / 4);
-  uint32 new_data_size = new_num_width * new_height;
+
+  uint32 num_width = data_size / height; // 计算原始图像每行数据的字节数
+
+  uint32 new_num_width =
+      4 * ceil(new_width * 3.0 /
+               4); // 计算缩小后图像每行数据的字节数（按4字节对齐）
+
+  uint32 new_data_size = new_num_width * new_height; // 计算缩小后图像的数据大小
+  // 动态分配内存用于存储缩小后的图像数据
   uint8 *new_data = new uint8[new_data_size];
   memset(new_data, 0, new_data_size);
 
+  // 遍历缩小后图像的每个像素
   for (int i = 0; i < new_height; i++) {
     for (int j = 0; j < new_width; j++) {
-      int src_i = static_cast<int>(i / ratio);
-      int src_j = static_cast<int>(j / ratio);
+      // 计算原图像的像素坐标
+      int src_i = (int)(i / ratio);
+      int src_j = (int)(j / ratio);
+      // 遍历每个像素的三个通道
       for (int c = 0; c < 3; c++) {
+        // 将原始图像对应像素的颜色值赋给缩小后图像的对应像素
         *(new_data + i * new_num_width + j * 3 + c) =
             *(data + src_i * num_width + src_j * 3 + c);
       }
     }
   }
-
   writeBMPInfo(new_name, new_width, new_height, data_offset, new_data_size,
                new_data, name);
   delete[] data;
@@ -156,28 +154,69 @@ void rotateImage(const char *name, const char *new_name, double angle,
   uint8 *data;
   readBMPInfo(name, width, height, data_offset, data_size, data);
 
+  // 计算好角度值
+  double rad = angle / 180.0 * M_PI;
+  double cos_angle = cos(rad);
+  double sin_angle = sin(rad);
+
+  // 计算原始图像每行数据的字节数
+  uint32 num_width = data_size / height;
+  // 动态分配内存用于存储旋转后的图像数据
+  uint8 *new_data = new uint8[data_size];
+  memset(new_data, 0, data_size);
+
+  // 遍历图像的每个像素
+  for (int i = 0; i < height; i++) {
+    for (int j = 0; j < width; j++) {
+      // 计算新像素相对于旋转中心的坐标
+      int new_x = j - center_x;
+      int new_y = i - center_y;
+
+      // 旋转公式计算原图像中的坐标
+      int old_x = (int)(new_x * cos_angle - new_y * sin_angle) + center_x;
+      int old_y = (int)(new_x * sin_angle + new_y * cos_angle) + center_y;
+
+      // 边界检查
+      if (old_x >= 0 && old_x < width && old_y >= 0 && old_y < height) {
+        for (int c = 0; c < 3; c++) {
+          *(new_data + i * num_width + j * 3 + c) =
+              *(data + old_y * num_width + old_x * 3 + c);
+        }
+      }
+    }
+  }
+
+  writeBMPInfo(new_name, width, height, data_offset, data_size, new_data, name);
+  delete[] data;
+  delete[] new_data;
+}
+
+void rotateImage1(const char *name, const char *new_name, double angle,
+                  int center_x, int center_y) {
+  uint32 width, height, data_offset, data_size;
+  uint8 *data;
+  readBMPInfo(name, width, height, data_offset, data_size, data);
+
   double rad = angle / 180.0 * M_PI;
   double cos_angle = cos(rad);
   double sin_angle = sin(rad);
 
   uint32 new_width =
-      static_cast<uint32>(width * fabs(cos_angle) + height * fabs(sin_angle));
+      (uint32)(width * fabs(cos_angle) + height * fabs(sin_angle));
   uint32 new_height =
-      static_cast<uint32>(width * fabs(sin_angle) + height * fabs(cos_angle));
+      (uint32)(width * fabs(sin_angle) + height * fabs(cos_angle));
+
   uint32 num_width = data_size / height;
   uint32 new_num_width = 4 * ceil(new_width * 3.0 / 4);
   uint32 new_data_size = new_num_width * new_height;
   uint8 *new_data = new uint8[new_data_size];
   memset(new_data, 0, new_data_size);
-
   for (int i = 0; i < new_height; i++) {
     for (int j = 0; j < new_width; j++) {
       int new_x = j - center_x;
       int new_y = i - center_y;
-      int old_x =
-          static_cast<int>(new_x * cos_angle - new_y * sin_angle) + center_x;
-      int old_y =
-          static_cast<int>(new_x * sin_angle + new_y * cos_angle) + center_y;
+      int old_x = (int)(new_x * cos_angle - new_y * sin_angle) + center_x;
+      int old_y = (int)(new_x * sin_angle + new_y * cos_angle) + center_y;
 
       if (old_x >= 0 && old_x < width && old_y >= 0 && old_y < height) {
         for (int c = 0; c < 3; c++) {
@@ -187,41 +226,39 @@ void rotateImage(const char *name, const char *new_name, double angle,
       }
     }
   }
-
   writeBMPInfo(new_name, new_width, new_height, data_offset, new_data_size,
                new_data, name);
   delete[] data;
   delete[] new_data;
 }
 
-// 显示主菜单
+// 显示主菜单的函数
 void mainMenu() {
-  const int menuWidth = 30; // 主菜单边框宽度
+  const int menuWidth = 30; // 菜单的宽度
   const string menuItems[] = {"中值滤波", "图像缩小", "图像旋转", "退出程序"};
-  const int numItems =
-      sizeof(menuItems) / sizeof(menuItems[0]); // 得到菜单项数量
-  int selected = 0;                             // 当前选中的菜单项
+  // 计算菜单项目的数量
+  const int numItems = sizeof(menuItems) / sizeof(menuItems[0]);
+  int selected = 0; // 当前选中的菜单项目索引
 
-  char bmp_name1[50] = "hqu.bmp";
-  char bmp_name2[50] = "new.bmp";
+  char bmp_name1[50] = "hqu.bmp"; // 输入BMP图像文件的名称
+  char bmp_name2[50] = "new.bmp"; // 输出BMP图像文件的名称
 
   while (true) {
-    system("cls");
+    system("cls"); // 清屏
 
-    // 绘制顶部边框
+    // 绘制菜单顶部边框
     cout << "+";
     for (int i = 0; i < menuWidth; i++)
       cout << "-";
     cout << "+" << endl;
 
-    // 显示标题
+    // 显示菜单标题
     string title = "主菜单";
-    int titlePadding = (menuWidth - title.length()) / 2; // 得到输出位置
+    // 计算标题的居中位置
+    int titlePadding = (menuWidth - title.length()) / 2;
     cout << "|";
-    cout << setw(titlePadding) << ""
-         << title // 输出字符串占一行 左右两边都有 * 例如|************主菜单 |
-         << setw(menuWidth - title.length() - titlePadding)
-         << ""; // 输出剩余空格补齐
+    cout << setw(titlePadding) << "" << title // 输出标题，左右填充空格以居中
+         << setw(menuWidth - title.length() - titlePadding) << "";
     cout << "|" << endl;
 
     // 绘制分隔线
@@ -230,7 +267,7 @@ void mainMenu() {
       cout << "-";
     cout << "|" << endl;
 
-    // 显示所有菜单项，并标记选中项
+    // 显示所有菜单项目，标记当前选中的项目
     for (int i = 0; i < numItems; i++) {
       int padding = (menuWidth - menuItems[i].length()) / 2;
       cout << "|";
@@ -244,31 +281,39 @@ void mainMenu() {
       cout << "|" << endl;
     }
 
-    // 绘制底部边框
+    // 绘制菜单底部边框
     cout << "+";
     for (int i = 0; i < menuWidth; i++)
       cout << "-";
     cout << "+" << endl;
 
-    char d = getch();
+    char d = getch(); // 获取用户按键输入
     switch (d) {
     case 'w':
+      // 向上
       selected = (selected - 1 + numItems) % numItems;
       break;
     case 's':
+      // 向下
       selected = (selected + 1) % numItems;
       break;
-    case '\r': // 回车键确认选择
+    case '\r': // 确认
       switch (selected) {
       case 0:
+        // 调用中值滤波
+        cout << "输入图像名称(格式 xxx.bmp) ";
+        cin >> bmp_name1;
         medianFilter(bmp_name1, bmp_name2);
         cout << "中值滤波完成，新图像已保存为 " << bmp_name2 << endl;
         getch();
         break;
       case 1: {
         double ratio;
-        cout << "请输入缩小比例（例如 0.5）: ";
+        cout << "输入图像名称(格式 xxx.bmp) ";
+        cin >> bmp_name1;
+        cout << "请输入缩小比例，例如 0.5: ";
         cin >> ratio;
+        // 调用图像缩小
         shrinkImage(bmp_name1, bmp_name2, ratio);
         cout << "图像缩小完成，新图像已保存为 " << bmp_name2 << endl;
         getch();
@@ -277,19 +322,28 @@ void mainMenu() {
       case 2: {
         double angle;
         int center_x, center_y;
-        cout << "请输入旋转角度（例如 45）: ";
+
+        uint32 width1, height1, data_offset1, data_size1;
+        uint8 *data1;
+        // 读取原始图像信息，用于获取图像的宽度和高度
+        cout << "输入图像名称(格式 xxx.bmp) ";
+        cin >> bmp_name1;
+        readBMPInfo(bmp_name1, width1, height1, data_offset1, data_size1,
+                    data1);
+        cout << "请输入旋转角度（正角度顺时针旋转，负角度逆时针旋转）: ";
         cin >> angle;
-        cout << "请输入旋转中心点的x坐标: ";
+        cout << "请输入旋转中心点的x坐标（范围0-" << width1 << "）: ";
         cin >> center_x;
-        cout << "请输入旋转中心点的y坐标: ";
+        cout << "请输入旋转中心点的y坐标（范围0-" << height1 << "）: ";
         cin >> center_y;
+        // 调用图像旋转
         rotateImage(bmp_name1, bmp_name2, angle, center_x, center_y);
         cout << "图像旋转完成，新图像已保存为 " << bmp_name2 << endl;
         getch();
         break;
       }
       case 3:
-        return;
+        return; // 退出菜单循环
       }
       break;
     }
@@ -297,6 +351,6 @@ void mainMenu() {
 }
 
 int main() {
-  mainMenu();
+  mainMenu(); // 调用主菜单函数
   return 0;
 }
