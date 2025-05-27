@@ -7,8 +7,23 @@
 #include <string>
 #include <QString>
 #include "BMP_Process.h"
+#include <sstream>
 
 // #define M_PI 3.1415926; // 定义圆周率常量
+
+string BMP_Process::convertPath(const string& path) {
+    stringstream result;
+    for (char c : path) {
+        if (c == '/') {
+            result << "\\\\";
+        } else {
+            result << c;
+        }
+    }
+    return result.str();
+}
+
+
 
 void BMP_Process::readBMPInfo(string name, uint32 &width, uint32 &height,
                  uint32 &data_offset, uint32 &data_size, uint8 *&data) {
@@ -16,7 +31,7 @@ void BMP_Process::readBMPInfo(string name, uint32 &width, uint32 &height,
     bmpdata.open(name, ios::binary | ios::in); // 以二进制只读模式打开文件
     if (bmpdata.fail()) {                      // 检查文件是否打开失败
         // cout << "原始图像读取失败";
-        exit(1); // 若失败则退出程序
+        exit(5); // 若失败则退出程序
     }
     bmpdata.seekg(18, ios::beg);
     bmpdata.read((char *)(&width), sizeof(width));
@@ -40,7 +55,7 @@ void BMP_Process::writeBMPInfo(string new_name, uint32 width, uint32 height,
     bmpw.open(new_name, ios::binary | ios::out); // 以二进制写模式打开文件
     if (bmpw.fail()) {                           // 检查文件是否打开失败
         // cout << "新图像写入失败";
-        exit(1); // 若失败则退出程序
+        exit(4); // 若失败则退出程序
     }
     fstream bmpdata;
     bmpdata.open(old_name, ios::binary | ios::in);
@@ -65,6 +80,7 @@ void BMP_Process::writeBMPInfo(string new_name, uint32 width, uint32 height,
 void BMP_Process::medianFilter(string name, string new_name) {
     uint32 width, height, data_offset, data_size;
     uint8 *data;
+
     readBMPInfo(name, width, height, data_offset, data_size, data);
 
     uint32 num_width = data_size / height;

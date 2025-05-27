@@ -3,8 +3,11 @@
 #include <QIcon>
 #include <QPixmap>
 #include <QPalette>
+// #include "C:/QT_Program/PhotoShop-Lite/SourseLib/BMP_Process.h"
+#include "./SourseLib/BMP_Process.h"
+//#include "BMP_Process.h"
 
-
+BMP_Process Process;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -44,8 +47,21 @@ void MainWindow::initButtons()
 }
 
 QString MainWindow::Button_OpenFile(){  //打开图片文件槽函数，返回这个文件的路径
+
     QString FilePath=QFileDialog::getOpenFileName(this,"OpenPicture-File",":/Picture","BMP-img(*.bmp)");
+    string sFilePath = FilePath.toStdString();
+
+    sFilePath=Process.convertPath(sFilePath);//转化路径格式为io流可以读取的格式 /->\\
+
+    ui->Pic_filepath_textEdit->insertPlainText(FilePath);// 显示打开的图片的路径
+
+
     if(!FilePath.isNull()){
+        char bmp_name1[50] = "hqu.bmp"; // 输入BMP图像文件的名称
+        char bmp_name2[50] = "new.bmp"; // 输出BMP图像文件的名称
+
+        Process.medianFilter(sFilePath,bmp_name2);
+
         QPixmap pixmapin(FilePath);
         if(!pixmapin.isNull()){
             QSize lableSize = ui->Pic_label->size();   // 获取当前窗口大小
@@ -53,6 +69,7 @@ QString MainWindow::Button_OpenFile(){  //打开图片文件槽函数，返回�
             ui->Pic_label->setAlignment(Qt::AlignCenter);//图片居中这个lable
         }
     }
+
     return FilePath;
 }
 

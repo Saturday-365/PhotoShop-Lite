@@ -94,6 +94,16 @@
      <string>TextLabel</string>
     </property>
    </widget>
+   <widget class="QTextEdit" name="Pic_filepath_textEdit">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>440</y>
+      <width>701</width>
+      <height>41</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

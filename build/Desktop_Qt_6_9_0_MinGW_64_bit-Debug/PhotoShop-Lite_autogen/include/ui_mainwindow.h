@@ -18,6 +18,7 @@
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -34,6 +35,7 @@ public:
     QPushButton *mode3Btn;
     QPushButton *mode4Btn;
     QLabel *Pic_label;
+    QTextEdit *Pic_filepath_textEdit;
     QMenuBar *menubar;
     QMenu *menuPhotoShop_Lite;
     QStatusBar *statusbar;
@@ -79,6 +81,9 @@ public:
         Pic_label = new QLabel(centralwidget);
         Pic_label->setObjectName("Pic_label");
         Pic_label->setGeometry(QRect(210, 70, 640, 360));
+        Pic_filepath_textEdit = new QTextEdit(centralwidget);
+        Pic_filepath_textEdit->setObjectName("Pic_filepath_textEdit");
+        Pic_filepath_textEdit->setGeometry(QRect(190, 440, 701, 41));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");

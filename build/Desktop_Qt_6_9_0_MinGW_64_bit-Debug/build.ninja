@@ -113,7 +113,7 @@ build PhotoShop-Lite.exe: CXX_EXECUTABLE_LINKER__PhotoShop-Lite_Debug CMakeFiles
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\QT_Program\PhotoShop-Lite\build\Desktop_Qt_6_9_0_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake-gui.exe -SC:\QT_Program\PhotoShop-Lite -BC:\QT_Program\PhotoShop-Lite\build\Desktop_Qt_6_9_0_MinGW_64_bit-Debug"
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\QT_Program\PhotoShop-Lite\build\Desktop_Qt_6_9_0_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake-gui.exe -SC:\QT_Program\PhotoShop-Lite -BC:\QT_Program\PhotoShop-Lite\build\Desktop_Qt_6_9_0_MinGW_64_bit-Debug"
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -125,7 +125,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\QT_Program\PhotoShop-Lite\build\Desktop_Qt_6_9_0_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe --regenerate-during-build -SC:\QT_Program\PhotoShop-Lite -BC:\QT_Program\PhotoShop-Lite\build\Desktop_Qt_6_9_0_MinGW_64_bit-Debug"
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\QT_Program\PhotoShop-Lite\build\Desktop_Qt_6_9_0_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe --regenerate-during-build -SC:\QT_Program\PhotoShop-Lite -BC:\QT_Program\PhotoShop-Lite\build\Desktop_Qt_6_9_0_MinGW_64_bit-Debug"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -143,7 +143,7 @@ build list_install_components: phony
 # Utility command for install
 
 build CMakeFiles/install.util: CUSTOM_COMMAND all
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\QT_Program\PhotoShop-Lite\build\Desktop_Qt_6_9_0_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -P cmake_install.cmake"
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\QT_Program\PhotoShop-Lite\build\Desktop_Qt_6_9_0_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -P cmake_install.cmake"
   DESC = Install the project...
   pool = console
   restat = 1
@@ -155,7 +155,7 @@ build install: phony CMakeFiles/install.util
 # Utility command for install/local
 
 build CMakeFiles/install/local.util: CUSTOM_COMMAND all
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\QT_Program\PhotoShop-Lite\build\Desktop_Qt_6_9_0_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\QT_Program\PhotoShop-Lite\build\Desktop_Qt_6_9_0_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
   DESC = Installing only the local directory...
   pool = console
   restat = 1
@@ -167,7 +167,7 @@ build install/local: phony CMakeFiles/install/local.util
 # Utility command for install/strip
 
 build CMakeFiles/install/strip.util: CUSTOM_COMMAND all
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\QT_Program\PhotoShop-Lite\build\Desktop_Qt_6_9_0_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\QT_Program\PhotoShop-Lite\build\Desktop_Qt_6_9_0_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
   DESC = Installing the project stripped...
   pool = console
   restat = 1
@@ -191,7 +191,7 @@ build PhotoShop-Lite_autogen: phony CMakeFiles/PhotoShop-Lite_autogen PhotoShop-
 # Custom command for PhotoShop-Lite_autogen\timestamp
 
 build PhotoShop-Lite_autogen/timestamp PhotoShop-Lite_autogen/mocs_compilation.cpp | ${cmake_ninja_workdir}PhotoShop-Lite_autogen/timestamp ${cmake_ninja_workdir}PhotoShop-Lite_autogen/mocs_compilation.cpp: CUSTOM_COMMAND C$:/Qt/6.9.0/mingw_64/bin/moc.exe C$:/Qt/6.9.0/mingw_64/bin/uic.exe || PhotoShop-Lite_autogen_timestamp_deps
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\QT_Program\PhotoShop-Lite\build\Desktop_Qt_6_9_0_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autogen C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/PhotoShop-Lite_autogen.dir/AutogenInfo.json Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -E touch C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/PhotoShop-Lite_autogen/timestamp && C:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_transform_depfile Ninja gccdepfile C:/QT_Program/PhotoShop-Lite C:/QT_Program/PhotoShop-Lite C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/PhotoShop-Lite_autogen/deps C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/d/0d0ed0c45d51387c6fc7f1da3b5ebed2dd076ee2f4690e613ecbe01b5002e33e.d"
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\QT_Program\PhotoShop-Lite\build\Desktop_Qt_6_9_0_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autogen C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/PhotoShop-Lite_autogen.dir/AutogenInfo.json Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -E touch C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/PhotoShop-Lite_autogen/timestamp && C:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_transform_depfile Ninja gccdepfile C:/QT_Program/PhotoShop-Lite C:/QT_Program/PhotoShop-Lite C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/PhotoShop-Lite_autogen/deps C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/d/0d0ed0c45d51387c6fc7f1da3b5ebed2dd076ee2f4690e613ecbe01b5002e33e.d"
   DESC = Automatic MOC and UIC for target PhotoShop-Lite
   depfile = CMakeFiles\d\0d0ed0c45d51387c6fc7f1da3b5ebed2dd076ee2f4690e613ecbe01b5002e33e.d
   deps = gcc
@@ -202,7 +202,7 @@ build PhotoShop-Lite_autogen/timestamp PhotoShop-Lite_autogen/mocs_compilation.c
 # Custom command for PhotoShop-Lite_autogen\EWIEGA46WW\qrc_Res.cpp
 
 build PhotoShop-Lite_autogen/EWIEGA46WW/qrc_Res.cpp | ${cmake_ninja_workdir}PhotoShop-Lite_autogen/EWIEGA46WW/qrc_Res.cpp: CUSTOM_COMMAND C$:/QT_Program/PhotoShop-Lite/Res.qrc CMakeFiles/PhotoShop-Lite_autogen.dir/AutoRcc_Res_EWIEGA46WW_Info.json C$:/QT_Program/PhotoShop-Lite/Icon/wating.png C$:/QT_Program/PhotoShop-Lite/Icon/star.png C$:/QT_Program/PhotoShop-Lite/Picture/mclaren$ senna$ wallpaper.jpg C$:/Qt/6.9.0/mingw_64/bin/rcc.exe C$:/Qt/6.9.0/mingw_64/bin/rcc.exe || PhotoShop-Lite_autogen PhotoShop-Lite_autogen_timestamp_deps
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\QT_Program\PhotoShop-Lite\build\Desktop_Qt_6_9_0_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autorcc C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/PhotoShop-Lite_autogen.dir/AutoRcc_Res_EWIEGA46WW_Info.json Debug"
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\QT_Program\PhotoShop-Lite\build\Desktop_Qt_6_9_0_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autorcc C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/PhotoShop-Lite_autogen.dir/AutoRcc_Res_EWIEGA46WW_Info.json Debug"
   DESC = Automatic RCC for Res.qrc
   restat = 1
 
