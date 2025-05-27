@@ -3,11 +3,12 @@
 #include <QIcon>
 #include <QPixmap>
 #include <QPalette>
-// #include "C:/QT_Program/PhotoShop-Lite/SourseLib/BMP_Process.h"
 #include "./SourseLib/BMP_Process.h"
-//#include "BMP_Process.h"
 
+QString FilePath,FilePath_Out;
+string sFilePath,sFilePath_Out;
 BMP_Process Process;
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -18,6 +19,10 @@ MainWindow::MainWindow(QWidget *parent)
     setBackGround(":/Picture/mclaren senna wallpaper.jpg"); //设置背景
     initButtons();
     connect(ui->mode1Btn,&QPushButton::clicked,this,&MainWindow::Button_OpenFile);//按钮链接槽函数 打开图片文件
+    connect(ui->mode2Btn,&QPushButton::clicked,this,&MainWindow::Button_medianFilter);//按钮链接槽函数 实现中值滤波并重新显示新的图片
+    connect(ui->mode3Btn,&QPushButton::clicked,this,&MainWindow::Button_shrinkImage);//按钮链接槽函数 打开图片文件
+    connect(ui->mode4Btn,&QPushButton::clicked,this,&MainWindow::Button_rotateImage);//按钮链接槽函数 打开图片文件
+
 }
 
 void MainWindow::setBackGround(const QString & filename)  //设置串口背景
@@ -46,22 +51,13 @@ void MainWindow::initButtons()
 
 }
 
-QString MainWindow::Button_OpenFile(){  //打开图片文件槽函数，返回这个文件的路径
+void MainWindow::Button_OpenFile(){  //打开图片文件槽函数，返回这个文件的路径
 
-    QString FilePath=QFileDialog::getOpenFileName(this,"OpenPicture-File",":/Picture","BMP-img(*.bmp)");
-    string sFilePath = FilePath.toStdString();
-
-    sFilePath=Process.convertPath(sFilePath);//转化路径格式为io流可以读取的格式 /->\\
-
+    FilePath=QFileDialog::getOpenFileName(this,"OpenPicture-File 打开你想要转换的BMP格式文件(不能包含中文路径)",":/Picture","BMP-img(*.bmp)");
+    sFilePath = FilePath.toStdString();
+    sFilePath=Process.convertPath(sFilePath);   //转化路径格式为io流可以读取的格式 /*  "/"->"\\" */
     ui->Pic_filepath_textEdit->insertPlainText(FilePath);// 显示打开的图片的路径
-
-
     if(!FilePath.isNull()){
-        char bmp_name1[50] = "hqu.bmp"; // 输入BMP图像文件的名称
-        char bmp_name2[50] = "new.bmp"; // 输出BMP图像文件的名称
-
-        Process.medianFilter(sFilePath,bmp_name2);
-
         QPixmap pixmapin(FilePath);
         if(!pixmapin.isNull()){
             QSize lableSize = ui->Pic_label->size();   // 获取当前窗口大小
@@ -69,8 +65,30 @@ QString MainWindow::Button_OpenFile(){  //打开图片文件槽函数，返回�
             ui->Pic_label->setAlignment(Qt::AlignCenter);//图片居中这个lable
         }
     }
+    FilePath_Out=QFileDialog::getSaveFileName(this,"SavePicture-File 请选择你想要把文件保存在哪里(不能包含中文路径)",":/Picture","BMP-img(*.bmp)");
+    sFilePath_Out= FilePath_Out.toStdString();
+    sFilePath_Out=Process.convertPath(sFilePath_Out);   //转化路径格式为io流可以读取的格式 /*  "/"->"\\" */
 
-    return FilePath;
+}
+void MainWindow::Button_medianFilter(){
+    char bmp_name1[50] = "hqu.bmp"; // 输入BMP图像文件的名称
+    char bmp_name2[50] = "new.bmp"; // 输出BMP图像文件的名称
+    Process.medianFilter(sFilePath,sFilePath_Out);
+
+    QPixmap pixmapin(FilePath_Out);
+    if(!pixmapin.isNull()){
+        ui->Pic_label->clear();
+        QSize lableSize = ui->Pic_label->size();   // 获取当前窗口大小
+        ui->Pic_label->setPixmap(pixmapin.scaled(lableSize,Qt::KeepAspectRatio,Qt::SmoothTransformation));  //将图片按照原来的宽高比进行缩放到指定lable的大小
+        ui->Pic_label->setAlignment(Qt::AlignCenter);//图片居中这个lable
+    }
+
+}
+void MainWindow::Button_shrinkImage(){
+
+}
+void MainWindow::Button_rotateImage(){
+
 }
 
 

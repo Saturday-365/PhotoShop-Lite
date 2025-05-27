@@ -24,7 +24,6 @@ string BMP_Process::convertPath(const string& path) {
 }
 
 
-
 void BMP_Process::readBMPInfo(string name, uint32 &width, uint32 &height,
                  uint32 &data_offset, uint32 &data_size, uint8 *&data) {
     fstream bmpdata;

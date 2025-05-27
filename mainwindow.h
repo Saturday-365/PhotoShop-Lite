@@ -31,10 +31,10 @@ public:
     void setPicWindow(QLabel *imageLabel,QPixmap *pixmap);
 
 private slots: //定义槽函数
-    QString Button_OpenFile();//打开照片文件 并返回照片文件的地址
-//     void Button_medianFilter();
-//     void Button_shrinkImage();
-//     void Button_rotateImage();
+    void Button_OpenFile();//打开照片文件 并返回照片文件的地址
+    void Button_medianFilter();
+    void Button_shrinkImage();
+    void Button_rotateImage();
 //     void paintEvent(QPaintEvent *event);
 // public:
 //     enum Type{
