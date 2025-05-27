@@ -1,4 +1,3 @@
-#include <algorithm>
 #include <conio.h>
 #include <cstring>
 #include <fstream>
@@ -6,7 +5,6 @@
 #include <iostream>
 #include <math.h>
 #include <string>
-#include <vector>
 using namespace std;
 typedef unsigned char uint8;
 typedef unsigned short uint16;
