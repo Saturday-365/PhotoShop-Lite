@@ -33,7 +33,7 @@ public:
     QPushButton *mode2Btn;
     QPushButton *mode3Btn;
     QPushButton *mode4Btn;
-    QLabel *label;
+    QLabel *Pic_label;
     QMenuBar *menubar;
     QMenu *menuPhotoShop_Lite;
     QStatusBar *statusbar;
@@ -76,13 +76,13 @@ public:
 
         verticalLayout->addWidget(mode4Btn);
 
-        label = new QLabel(centralwidget);
-        label->setObjectName("label");
-        label->setGeometry(QRect(210, 70, 640, 360));
+        Pic_label = new QLabel(centralwidget);
+        Pic_label->setObjectName("Pic_label");
+        Pic_label->setGeometry(QRect(210, 70, 640, 360));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 899, 21));
+        menubar->setGeometry(QRect(0, 0, 899, 20));
         menuPhotoShop_Lite = new QMenu(menubar);
         menuPhotoShop_Lite->setObjectName("menuPhotoShop_Lite");
         MainWindow->setMenuBar(menubar);
@@ -104,7 +104,7 @@ public:
         mode2Btn->setText(QString());
         mode3Btn->setText(QString());
         mode4Btn->setText(QString());
-        label->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        Pic_label->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         menuPhotoShop_Lite->setTitle(QCoreApplication::translate("MainWindow", "PhotoShop Lite", nullptr));
     } // retranslateUi
 

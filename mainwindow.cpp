@@ -14,10 +14,10 @@ MainWindow::MainWindow(QWidget *parent)
     setFixedSize(960,540);
     setBackGround(":/Picture/mclaren senna wallpaper.jpg"); //设置背景
     initButtons();
-    connect(ui->mode1Btn,&QPushButton::clicked,this,&MainWindow::Button_OpenFile);
+    connect(ui->mode1Btn,&QPushButton::clicked,this,&MainWindow::Button_OpenFile);//按钮链接槽函数 打开图片文件
 }
 
-void MainWindow::setBackGround(const QString & filename)
+void MainWindow::setBackGround(const QString & filename)  //设置串口背景
 {
     QPixmap pixmap(filename);//创建照片
     QSize windowsSize = this->size(); // 获取当前窗口大小
@@ -42,20 +42,20 @@ void MainWindow::initButtons()
     setButtonStyle(ui->mode4Btn, ":/Icon/wating.png");
 
 }
-QString MainWindow::Button_OpenFile(){
-    QString FilePath=QFileDialog::getOpenFileName(this,"OpenPicture-File",":/Picture","BMP-img(*.bmp)");
 
+QString MainWindow::Button_OpenFile(){  //打开图片文件槽函数，返回这个文件的路径
+    QString FilePath=QFileDialog::getOpenFileName(this,"OpenPicture-File",":/Picture","BMP-img(*.bmp)");
     if(!FilePath.isNull()){
         QPixmap pixmapin(FilePath);
-        if(!pixmapin.isNull())
-           // setPicWindow(ui->label,&pixmapin);
-        //QSize lableSize = ui->label->size();   // 获取当前窗口大小
-        //QPixmap scalePixmap = pixmapin.scaled(ui->label->size(),Qt::IgnoreAspectRatio,Qt::SmoothTransformation); //讲图片所放到当前窗口的大小
-        ui->label->setPixmap(pixmapin.scaled(ui->label->size(),Qt::IgnoreAspectRatio,Qt::SmoothTransformation));
+        if(!pixmapin.isNull()){
+            QSize lableSize = ui->Pic_label->size();   // 获取当前窗口大小
+            ui->Pic_label->setPixmap(pixmapin.scaled(lableSize,Qt::KeepAspectRatio,Qt::SmoothTransformation));  //将图片按照原来的宽高比进行缩放到指定lable的大小
+            ui->Pic_label->setAlignment(Qt::AlignCenter);//图片居中这个lable
+        }
     }
-
     return FilePath;
 }
+
 
 void MainWindow::setPicWindow(QLabel *imageLabel,QPixmap *pixmap)
 {

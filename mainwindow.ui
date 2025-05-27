@@ -81,7 +81,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="Pic_label">
     <property name="geometry">
      <rect>
       <x>210</x>
@@ -101,7 +101,7 @@
      <x>0</x>
      <y>0</y>
      <width>899</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuPhotoShop_Lite">

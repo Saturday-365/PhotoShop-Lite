@@ -441,6 +441,6 @@ C:/QT_Program/PhotoShop-Lite/mainwindow.h
  mdp:C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h
  mdp:C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h
 C:/QT_Program/PhotoShop-Lite/SourseLib/BMP_Process.cpp
+C:/QT_Program/PhotoShop-Lite/main.cpp
 C:/QT_Program/PhotoShop-Lite/mainwindow.cpp
  uic:./ui_mainwindow.h
-C:/QT_Program/PhotoShop-Lite/main.cpp
