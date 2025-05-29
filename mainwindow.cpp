@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
+#include "shrinkmage.h"
+// #include "ui_shrinkmage.h"
 #include <QIcon>
 #include <QPixmap>
 #include <QPalette>
@@ -20,12 +22,10 @@ MainWindow::MainWindow(QWidget *parent)
     initButtons();
     connect(ui->mode1Btn,&QPushButton::clicked,this,&MainWindow::Button_OpenFile);//按钮链接槽函数 打开图片文件
     connect(ui->mode2Btn,&QPushButton::clicked,this,&MainWindow::Button_medianFilter);//按钮链接槽函数 实现中值滤波并重新显示新的图片
-    connect(ui->mode3Btn,&QPushButton::clicked,this,&MainWindow::Button_shrinkImage);//按钮链接槽函数 打开图片文件
-    connect(ui->mode4Btn,&QPushButton::clicked,this,&MainWindow::Button_rotateImage);//按钮链接槽函数 打开图片文件
 
 }
 
-void MainWindow::setBackGround(const QString & filename)  //设置串口背景
+void MainWindow::setBackGround(const QString & filename)  //设置背景
 {
     QPixmap pixmap(filename);//创建照片
     QSize windowsSize = this->size(); // 获取当前窗口大小
@@ -50,7 +50,16 @@ void MainWindow::initButtons()
     setButtonStyle(ui->mode4Btn, ":/Icon/wating.png");
 
 }
-
+void MainWindow::reflash_PicShow(){
+    QPixmap pixmapin(FilePath_Out);
+    if(!pixmapin.isNull()){
+        ui->Pic_label->clear();
+        // QSize lableSize = pixmapin.size();
+        QSize lableSize = ui->Pic_label->size();
+        ui->Pic_label->setPixmap(pixmapin.scaled(lableSize,Qt::KeepAspectRatio,Qt::SmoothTransformation));  //将图片按照原来的宽高比进行缩放到指定lable的大小
+        ui->Pic_label->setAlignment(Qt::AlignCenter);//图片居中这个lable
+    }
+}
 void MainWindow::Button_OpenFile(){  //打开图片文件槽函数，返回这个文件的路径
 
     FilePath=QFileDialog::getOpenFileName(this,"OpenPicture-File 打开你想要转换的BMP格式文件(不能包含中文路径)",":/Picture","BMP-img(*.bmp)");
@@ -73,7 +82,7 @@ void MainWindow::Button_OpenFile(){  //打开图片文件槽函数，返回这�
 void MainWindow::Button_medianFilter(){
     char bmp_name1[50] = "hqu.bmp"; // 输入BMP图像文件的名称
     char bmp_name2[50] = "new.bmp"; // 输出BMP图像文件的名称
-    Process.medianFilter(sFilePath,sFilePath_Out);
+    Process.medianFilter(sFilePath,sFilePath_Out);//执行bmp处理函数
 
     QPixmap pixmapin(FilePath_Out);
     if(!pixmapin.isNull()){
@@ -84,10 +93,12 @@ void MainWindow::Button_medianFilter(){
     }
 
 }
-void MainWindow::Button_shrinkImage(){
 
-}
-void MainWindow::Button_rotateImage(){
+void MainWindow::on_mode3Btn_clicked()
+{
+    Shrinkmage *configWindow = new Shrinkmage(this);
+    configWindow->show();
+
 
 }
 
@@ -99,35 +110,10 @@ void MainWindow::setPicWindow(QLabel *imageLabel,QPixmap *pixmap)
     //palette.setBrush(QPalette::Window,QBrush(scalePixmap));
     //this->setPalette(palette);          //将调色板应用到windows
 }
-// void MainWindow::wheelEvent(QWheelEvent *e)//处理鼠标滑轮事件
-// {
 
-// }
-// bool MainWindow::event(QEvent *event)//判断处理鼠标事件
-// {
-
-//     return QWidget::event(event)
-// }
-
-// void MainWindow::paintEvent(QPaintEvent *event)//绘制窗口
-// {
-
-
-// }
-
-// void MainWindow::Button_medianFilter()
-// {
-
-// }
-// void MainWindow::Button_shrinkImage()
-// {
-
-// }
-// void MainWindow::Button_rotateImage()
-// {
-
-// }
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+

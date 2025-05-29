@@ -9,6 +9,7 @@
 #include <QImage>
 #include <qlabel.h>
 
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -22,7 +23,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
+    void reflash_PicShow();
 
  private:
     void setBackGround(const QString & filename);
@@ -33,8 +34,6 @@ public:
 private slots: //定义槽函数
     void Button_OpenFile();//打开照片文件 并返回照片文件的地址
     void Button_medianFilter();
-    void Button_shrinkImage();
-    void Button_rotateImage();
 //     void paintEvent(QPaintEvent *event);
 // public:
 //     enum Type{
@@ -43,7 +42,10 @@ private slots: //定义槽函数
 //     void wheelEvent(QWheelEvent *e);//处理鼠标滑轮事件
 //     bool event(QEvent *event);//判断处理鼠标事件
 
+    void on_mode3Btn_clicked();
+
 private:
     Ui::MainWindow *ui;
+
 };
 #endif // MAINWINDOW_H

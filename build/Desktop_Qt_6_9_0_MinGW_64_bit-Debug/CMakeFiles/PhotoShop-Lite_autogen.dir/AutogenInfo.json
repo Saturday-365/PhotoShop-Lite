@@ -343,6 +343,12 @@
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
 			null
+		],
+		[
+			"C:/QT_Program/PhotoShop-Lite/shrinkmage.h",
+			"MU",
+			"EWIEGA46WW/moc_shrinkmage.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -418,7 +424,8 @@
 	[
 		[ "C:/QT_Program/PhotoShop-Lite/SourseLib/BMP_Process.cpp", "MU", null ],
 		[ "C:/QT_Program/PhotoShop-Lite/main.cpp", "MU", null ],
-		[ "C:/QT_Program/PhotoShop-Lite/mainwindow.cpp", "MU", null ]
+		[ "C:/QT_Program/PhotoShop-Lite/mainwindow.cpp", "MU", null ],
+		[ "C:/QT_Program/PhotoShop-Lite/shrinkmage.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],

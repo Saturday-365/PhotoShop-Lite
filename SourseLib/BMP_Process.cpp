@@ -2,209 +2,207 @@
 #include <cstring>
 #include <fstream>
 // #include <iomanip>
+#include "BMP_Process.h"
+#include <QString>
 #include <iostream>
 #include <math.h>
-#include <string>
-#include <QString>
-#include "BMP_Process.h"
 #include <sstream>
+#include <string>
 
-// #define M_PI 3.1415926; // ¶¨ÒåÔ²ÖÜÂÊ³£Á¿
 
-string BMP_Process::convertPath(const string& path) {
-    stringstream result;
-    for (char c : path) {
-        if (c == '/') {
-            result << "\\\\";
-        } else {
-            result << c;
-        }
+// #define M_PI 3.1415926; // å®šä¹‰åœ†å‘¨ç‡å¸¸é‡
+
+string BMP_Process::convertPath(const string &path) {
+  stringstream result;
+  for (char c : path) {
+    if (c == '/') {
+      result << "\\\\";
+    } else {
+      result << c;
     }
-    return result.str();
+  }
+  return result.str();
 }
-
 
 void BMP_Process::readBMPInfo(string name, uint32 &width, uint32 &height,
-                 uint32 &data_offset, uint32 &data_size, uint8 *&data) {
-    fstream bmpdata;
-    bmpdata.open(name, ios::binary | ios::in); // ÒÔ¶ş½øÖÆÖ»¶ÁÄ£Ê½´ò¿ªÎÄ¼ş
-    if (bmpdata.fail()) {                      // ¼ì²éÎÄ¼şÊÇ·ñ´ò¿ªÊ§°Ü
-        // cout << "Ô­Ê¼Í¼Ïñ¶ÁÈ¡Ê§°Ü";
-        exit(5); // ÈôÊ§°ÜÔòÍË³ö³ÌĞò
-    }
-    bmpdata.seekg(18, ios::beg);
-    bmpdata.read((char *)(&width), sizeof(width));
-    bmpdata.seekg(22, ios::beg);
-    bmpdata.read((char *)(&height), sizeof(height));
-    bmpdata.seekg(10, ios::beg);
-    bmpdata.read((char *)(&data_offset), sizeof(data_offset));
-    bmpdata.seekg(34, ios::beg);
-    bmpdata.read((char *)(&data_size), sizeof(data_size));
-    data = new uint8[data_size];
-    bmpdata.seekg(data_offset, ios::beg);
-    bmpdata.read((char *)data, data_size);
-    bmpdata.close(); // ¹Ø±ÕÎÄ¼ş
+                              uint32 &data_offset, uint32 &data_size,
+                              uint8 *&data) {
+  fstream bmpdata;
+  bmpdata.open(name, ios::binary | ios::in); // ä»¥äºŒè¿›åˆ¶åªè¯»æ¨¡å¼æ‰“å¼€æ–‡ä»¶
+  if (bmpdata.fail()) {                      // æ£€æŸ¥æ–‡ä»¶æ˜¯å¦æ‰“å¼€å¤±è´¥
+    // cout << "åŸå§‹å›¾åƒè¯»å–å¤±è´¥";
+    exit(5); // è‹¥å¤±è´¥åˆ™é€€å‡ºç¨‹åº
+  }
+  bmpdata.seekg(18, ios::beg);
+  bmpdata.read((char *)(&width), sizeof(width));
+  bmpdata.seekg(22, ios::beg);
+  bmpdata.read((char *)(&height), sizeof(height));
+  bmpdata.seekg(10, ios::beg);
+  bmpdata.read((char *)(&data_offset), sizeof(data_offset));
+  bmpdata.seekg(34, ios::beg);
+  bmpdata.read((char *)(&data_size), sizeof(data_size));
+  data = new uint8[data_size];
+  bmpdata.seekg(data_offset, ios::beg);
+  bmpdata.read((char *)data, data_size);
+  bmpdata.close(); // å…³é—­æ–‡ä»¶
 }
 
-// Ğ´ÈëBMPÍ¼ÏñĞÅÏ¢µÄº¯Êı
+// å†™å…¥BMPå›¾åƒä¿¡æ¯çš„å‡½æ•°
 void BMP_Process::writeBMPInfo(string new_name, uint32 width, uint32 height,
-                  uint32 data_offset, uint32 data_size, uint8 *data,
-                  string old_name) {
-    fstream bmpw;
-    bmpw.open(new_name, ios::binary | ios::out); // ÒÔ¶ş½øÖÆĞ´Ä£Ê½´ò¿ªÎÄ¼ş
-    if (bmpw.fail()) {                           // ¼ì²éÎÄ¼şÊÇ·ñ´ò¿ªÊ§°Ü
-        // cout << "ĞÂÍ¼ÏñĞ´ÈëÊ§°Ü";
-        exit(4); // ÈôÊ§°ÜÔòÍË³ö³ÌĞò
-    }
-    fstream bmpdata;
-    bmpdata.open(old_name, ios::binary | ios::in);
-    uint8 *tmp = new uint8[data_offset];
-    bmpdata.seekg(0, ios::beg);
-    bmpdata.read((char *)tmp, data_offset);
-    bmpw.write((char *)tmp, data_offset);
-    delete[] tmp;    // ÊÍ·ÅÁÙÊ±ÄÚ´æ
-    bmpdata.close(); // ¹Ø±ÕÔ­Ê¼ÎÄ¼ş
-    bmpw.seekp(18, ios::beg);
-    bmpw.write((char *)(&width), sizeof(width));
-    bmpw.seekp(22, ios::beg);
-    bmpw.write((char *)(&height), sizeof(height));
-    bmpw.seekp(34, ios::beg);
-    bmpw.write((char *)(&data_size), sizeof(data_size));
-    bmpw.seekp(data_offset, ios::beg);
-    bmpw.write((char *)data, data_size);
-    bmpw.close();
+                               uint32 data_offset, uint32 data_size,
+                               uint8 *data, string old_name) {
+  fstream bmpw;
+  bmpw.open(new_name, ios::binary | ios::out); // ä»¥äºŒè¿›åˆ¶å†™æ¨¡å¼æ‰“å¼€æ–‡ä»¶
+  if (bmpw.fail()) {                           // æ£€æŸ¥æ–‡ä»¶æ˜¯å¦æ‰“å¼€å¤±è´¥
+    // cout << "æ–°å›¾åƒå†™å…¥å¤±è´¥";
+    exit(4); // è‹¥å¤±è´¥åˆ™é€€å‡ºç¨‹åº
+  }
+  fstream bmpdata;
+  bmpdata.open(old_name, ios::binary | ios::in);
+  uint8 *tmp = new uint8[data_offset];
+  bmpdata.seekg(0, ios::beg);
+  bmpdata.read((char *)tmp, data_offset);
+  bmpw.write((char *)tmp, data_offset);
+  delete[] tmp;    // é‡Šæ”¾ä¸´æ—¶å†…å­˜
+  bmpdata.close(); // å…³é—­åŸå§‹æ–‡ä»¶
+  bmpw.seekp(18, ios::beg);
+  bmpw.write((char *)(&width), sizeof(width));
+  bmpw.seekp(22, ios::beg);
+  bmpw.write((char *)(&height), sizeof(height));
+  bmpw.seekp(34, ios::beg);
+  bmpw.write((char *)(&data_size), sizeof(data_size));
+  bmpw.seekp(data_offset, ios::beg);
+  bmpw.write((char *)data, data_size);
+  bmpw.close();
 }
 
-// ÖĞÖµÂË²¨
+// ä¸­å€¼æ»¤æ³¢
 void BMP_Process::medianFilter(string name, string new_name) {
-    uint32 width, height, data_offset, data_size;
-    uint8 *data;
+  uint32 width, height, data_offset, data_size;
+  uint8 *data;
 
-    readBMPInfo(name, width, height, data_offset, data_size, data);
+  readBMPInfo(name, width, height, data_offset, data_size, data);
 
-    uint32 num_width = data_size / height;
-    uint8 *new_data = new uint8[data_size];
-    memcpy(new_data, data, data_size);
-    const int FILTER_SIZE = 25;
-    uint8 values[FILTER_SIZE]; // 5x5ÁÚÓò
-    for (int i = 2; i < height - 2; i++) {
-        for (int j = 2; j < width - 2; j++) {
-            for (int c = 0; c < 3; c++) {
-                // ÊÕ¼¯ÁÚÓòÏñËØÖµµ½Êı×é
-                int index = 0;
-                for (int x = -2; x <= 2; x++) {
-                    for (int y = -2; y <= 2; y++) {
-                        values[index++] = *(data + (i + x) * num_width + (j + y) * 3 + c);
-                    }
-                }
-                // Ê¹ÓÃÃ°ÅİÅÅĞò
-                for (int pass = 0; pass < FILTER_SIZE - 1; pass++) {
-                    for (int k = 0; k < FILTER_SIZE - pass - 1; k++) {
-                        if (values[k] > values[k + 1]) {
-                            uint8 temp = values[k];
-                            values[k] = values[k + 1];
-                            values[k + 1] = temp;
-                        }
-                    }
-                }
-                // ¶ÔÓ¦ÏñËØÎ»È¡ÖĞÖµ
-                *(new_data + i * num_width + j * 3 + c) = values[12];
-            }
+  uint32 num_width = data_size / height;
+  uint8 *new_data = new uint8[data_size];
+  memcpy(new_data, data, data_size);
+  const int FILTER_SIZE = 25;
+  uint8 values[FILTER_SIZE]; // 5x5é‚»åŸŸ
+  for (int i = 2; i < height - 2; i++) {
+    for (int j = 2; j < width - 2; j++) {
+      for (int c = 0; c < 3; c++) {
+        // æ”¶é›†é‚»åŸŸåƒç´ å€¼åˆ°æ•°ç»„
+        int index = 0;
+        for (int x = -2; x <= 2; x++) {
+          for (int y = -2; y <= 2; y++) {
+            values[index++] = *(data + (i + x) * num_width + (j + y) * 3 + c);
+          }
         }
+        // ä½¿ç”¨å†’æ³¡æ’åº
+        for (int pass = 0; pass < FILTER_SIZE - 1; pass++) {
+          for (int k = 0; k < FILTER_SIZE - pass - 1; k++) {
+            if (values[k] > values[k + 1]) {
+              uint8 temp = values[k];
+              values[k] = values[k + 1];
+              values[k + 1] = temp;
+            }
+          }
+        }
+        // å¯¹åº”åƒç´ ä½å–ä¸­å€¼
+        *(new_data + i * num_width + j * 3 + c) = values[12];
+      }
     }
-    writeBMPInfo(new_name, width, height, data_offset, data_size, new_data, name);
-    delete[] data;
-    delete[] new_data;
+  }
+  writeBMPInfo(new_name, width, height, data_offset, data_size, new_data, name);
+  delete[] data;
+  delete[] new_data;
 }
 
-// Í¼ÏñËõĞ¡º¯Êı
+// å›¾åƒç¼©å°å‡½æ•°
 void BMP_Process::shrinkImage(string name, string new_name, double ratio) {
-    uint32 width, height, data_offset, data_size;
-    uint8 *data;
-    readBMPInfo(name, width, height, data_offset, data_size, data);
+  uint32 width, height, data_offset, data_size;
+  uint8 *data;
+  readBMPInfo(name, width, height, data_offset, data_size, data);
 
-    // ¼ÆËãËõĞ¡ºóµÄÍ¼Ïñ´óĞ¡
-    uint32 new_width = static_cast<uint32>(width * ratio);
-    uint32 new_height = static_cast<uint32>(height * ratio);
+  // è®¡ç®—ç¼©å°åçš„å›¾åƒå¤§å°
+  uint32 new_width = static_cast<uint32>(width * ratio);
+  uint32 new_height = static_cast<uint32>(height * ratio);
 
-    uint32 num_width = data_size / height; // ¼ÆËãÔ­Ê¼Í¼ÏñÃ¿ĞĞÊı¾İµÄ×Ö½ÚÊı
+  uint32 num_width = data_size / height; // è®¡ç®—åŸå§‹å›¾åƒæ¯è¡Œæ•°æ®çš„å­—èŠ‚æ•°
 
-    uint32 new_num_width =
-        4 * ceil(new_width * 3.0 /
-                 4); // ¼ÆËãËõĞ¡ºóÍ¼ÏñÃ¿ĞĞÊı¾İµÄ×Ö½ÚÊı£¨°´4×Ö½Ú¶ÔÆë£©
+  uint32 new_num_width =
+      4 * ceil(new_width * 3.0 /
+               4); // è®¡ç®—ç¼©å°åå›¾åƒæ¯è¡Œæ•°æ®çš„å­—èŠ‚æ•°ï¼ˆæŒ‰4å­—èŠ‚å¯¹é½ï¼‰
 
-    uint32 new_data_size = new_num_width * new_height; // ¼ÆËãËõĞ¡ºóÍ¼ÏñµÄÊı¾İ´óĞ¡
-    // ¶¯Ì¬·ÖÅäÄÚ´æÓÃÓÚ´æ´¢ËõĞ¡ºóµÄÍ¼ÏñÊı¾İ
-    uint8 *new_data = new uint8[new_data_size];
-    memset(new_data, 0, new_data_size);
+  uint32 new_data_size = new_num_width * new_height; // è®¡ç®—ç¼©å°åå›¾åƒçš„æ•°æ®å¤§å°
+  // åŠ¨æ€åˆ†é…å†…å­˜ç”¨äºå­˜å‚¨ç¼©å°åçš„å›¾åƒæ•°æ®
+  uint8 *new_data = new uint8[new_data_size];
+  memset(new_data, 0, new_data_size);
 
-    // ±éÀúËõĞ¡ºóÍ¼ÏñµÄÃ¿¸öÏñËØ
-    for (int i = 0; i < new_height; i++) {
-        for (int j = 0; j < new_width; j++) {
-            // ¼ÆËãÔ­Í¼ÏñµÄÏñËØ×ø±ê
-            int src_i = (int)(i / ratio);
-            int src_j = (int)(j / ratio);
-            // ±éÀúÃ¿¸öÏñËØµÄÈı¸öÍ¨µÀ
-            for (int c = 0; c < 3; c++) {
-                // ½«Ô­Ê¼Í¼Ïñ¶ÔÓ¦ÏñËØµÄÑÕÉ«Öµ¸³¸øËõĞ¡ºóÍ¼ÏñµÄ¶ÔÓ¦ÏñËØ
-                *(new_data + i * new_num_width + j * 3 + c) =
-                    *(data + src_i * num_width + src_j * 3 + c);
-            }
-        }
+  // éå†ç¼©å°åå›¾åƒçš„æ¯ä¸ªåƒç´ 
+  for (int i = 0; i < new_height; i++) {
+    for (int j = 0; j < new_width; j++) {
+      // è®¡ç®—åŸå›¾åƒçš„åƒç´ åæ ‡
+      int src_i = (int)(i / ratio);
+      int src_j = (int)(j / ratio);
+      // éå†æ¯ä¸ªåƒç´ çš„ä¸‰ä¸ªé€šé“
+      for (int c = 0; c < 3; c++) {
+        // å°†åŸå§‹å›¾åƒå¯¹åº”åƒç´ çš„é¢œè‰²å€¼èµ‹ç»™ç¼©å°åå›¾åƒçš„å¯¹åº”åƒç´ 
+        *(new_data + i * new_num_width + j * 3 + c) =
+            *(data + src_i * num_width + src_j * 3 + c);
+      }
     }
-    writeBMPInfo(new_name, new_width, new_height, data_offset, new_data_size,
-                 new_data, name);
-    delete[] data;
-    delete[] new_data;
+  }
+  writeBMPInfo(new_name, new_width, new_height, data_offset, new_data_size,
+               new_data, name);
+  delete[] data;
+  delete[] new_data;
 }
 
-// Í¼ÏñĞı×ª
+// å›¾åƒæ—‹è½¬
 void BMP_Process::rotateImage(string name, string new_name, double angle,
-                 int center_x, int center_y) {
-    uint32 width, height, data_offset, data_size;
-    uint8 *data;
-    readBMPInfo(name, width, height, data_offset, data_size, data);
+                              int center_x, int center_y) {
+  uint32 width, height, data_offset, data_size;
+  uint8 *data;
+  readBMPInfo(name, width, height, data_offset, data_size, data);
 
-    // ¼ÆËãºÃ½Ç¶ÈÖµ
-    double rad = angle / 180.0 * M_PI;
-    double cos_angle = cos(rad);
-    double sin_angle = sin(rad);
+  // è®¡ç®—å¥½è§’åº¦å€¼
+  double rad = angle / 180.0 * M_PI;
+  double cos_angle = cos(rad);
+  double sin_angle = sin(rad);
 
-    // ¼ÆËãÔ­Ê¼Í¼ÏñÃ¿ĞĞÊı¾İµÄ×Ö½ÚÊı
-    uint32 num_width = data_size / height;
-    // ¶¯Ì¬·ÖÅäÄÚ´æÓÃÓÚ´æ´¢Ğı×ªºóµÄÍ¼ÏñÊı¾İ
-    uint8 *new_data = new uint8[data_size];
-    memset(new_data, 0, data_size);
+  // è®¡ç®—åŸå§‹å›¾åƒæ¯è¡Œæ•°æ®çš„å­—èŠ‚æ•°
+  uint32 num_width = data_size / height;
+  // åŠ¨æ€åˆ†é…å†…å­˜ç”¨äºå­˜å‚¨æ—‹è½¬åçš„å›¾åƒæ•°æ®
+  uint8 *new_data = new uint8[data_size];
+  memset(new_data, 0, data_size);
 
-    // ±éÀúÍ¼ÏñµÄÃ¿¸öÏñËØ
-    for (int i = 0; i < height; i++) {
-        for (int j = 0; j < width; j++) {
-            // ¼ÆËãĞÂÏñËØÏà¶ÔÓÚĞı×ªÖĞĞÄµÄ×ø±ê
-            int new_x = j - center_x;
-            int new_y = i - center_y;
+  // éå†å›¾åƒçš„æ¯ä¸ªåƒç´ 
+  for (int i = 0; i < height; i++) {
+    for (int j = 0; j < width; j++) {
+      // è®¡ç®—æ–°åƒç´ ç›¸å¯¹äºæ—‹è½¬ä¸­å¿ƒçš„åæ ‡
+      int new_x = j - center_x;
+      int new_y = i - center_y;
 
-            // Ğı×ª¹«Ê½¼ÆËãÔ­Í¼ÏñÖĞµÄ×ø±ê
-            int old_x = (int)(new_x * cos_angle - new_y * sin_angle) + center_x;
-            int old_y = (int)(new_x * sin_angle + new_y * cos_angle) + center_y;
+      // æ—‹è½¬å…¬å¼è®¡ç®—åŸå›¾åƒä¸­çš„åæ ‡
+      int old_x = (int)(new_x * cos_angle - new_y * sin_angle) + center_x;
+      int old_y = (int)(new_x * sin_angle + new_y * cos_angle) + center_y;
 
-            // ±ß½ç¼ì²é
-            if (old_x >= 0 && old_x < width && old_y >= 0 && old_y < height) {
-                for (int c = 0; c < 3; c++) {
-                    *(new_data + i * num_width + j * 3 + c) =
-                        *(data + old_y * num_width + old_x * 3 + c);
-                }
-            }
+      // è¾¹ç•Œæ£€æŸ¥
+      if (old_x >= 0 && old_x < width && old_y >= 0 && old_y < height) {
+        for (int c = 0; c < 3; c++) {
+          *(new_data + i * num_width + j * 3 + c) =
+              *(data + old_y * num_width + old_x * 3 + c);
         }
+      }
     }
+  }
 
-    writeBMPInfo(new_name, width, height, data_offset, data_size, new_data, name);
-    delete[] data;
-    delete[] new_data;
+  writeBMPInfo(new_name, width, height, data_offset, data_size, new_data, name);
+  delete[] data;
+  delete[] new_data;
 }
-
-
 
 // medianFilter(bmp_name1, bmp_name2);
 // shrinkImage(bmp_name1, bmp_name2, ratio);
 // rotateImage(bmp_name1, bmp_name2, angle, center_x, center_y);
-

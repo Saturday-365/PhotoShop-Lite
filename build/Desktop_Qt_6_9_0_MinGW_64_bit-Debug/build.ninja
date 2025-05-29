@@ -81,6 +81,14 @@ build CMakeFiles/PhotoShop-Lite.dir/SourseLib/BMP_Process.cpp.obj: CXX_COMPILER_
   OBJECT_DIR = CMakeFiles\PhotoShop-Lite.dir
   OBJECT_FILE_DIR = CMakeFiles\PhotoShop-Lite.dir\SourseLib
 
+build CMakeFiles/PhotoShop-Lite.dir/shrinkmage.cpp.obj: CXX_COMPILER__PhotoShop-Lite_unscanned_Debug C$:/QT_Program/PhotoShop-Lite/shrinkmage.cpp || cmake_object_order_depends_target_PhotoShop-Lite
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\PhotoShop-Lite.dir\shrinkmage.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/PhotoShop-Lite_autogen/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include/QtGui
+  OBJECT_DIR = CMakeFiles\PhotoShop-Lite.dir
+  OBJECT_FILE_DIR = CMakeFiles\PhotoShop-Lite.dir
+
 build CMakeFiles/PhotoShop-Lite.dir/PhotoShop-Lite_autogen/EWIEGA46WW/qrc_Res.cpp.obj: CXX_COMPILER__PhotoShop-Lite_unscanned_Debug C$:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/PhotoShop-Lite_autogen/EWIEGA46WW/qrc_Res.cpp || cmake_object_order_depends_target_PhotoShop-Lite
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\PhotoShop-Lite.dir\PhotoShop-Lite_autogen\EWIEGA46WW\qrc_Res.cpp.obj.d
@@ -97,7 +105,7 @@ build CMakeFiles/PhotoShop-Lite.dir/PhotoShop-Lite_autogen/EWIEGA46WW/qrc_Res.cp
 #############################################
 # Link the executable PhotoShop-Lite.exe
 
-build PhotoShop-Lite.exe: CXX_EXECUTABLE_LINKER__PhotoShop-Lite_Debug CMakeFiles/PhotoShop-Lite.dir/PhotoShop-Lite_autogen/mocs_compilation.cpp.obj CMakeFiles/PhotoShop-Lite.dir/main.cpp.obj CMakeFiles/PhotoShop-Lite.dir/mainwindow.cpp.obj CMakeFiles/PhotoShop-Lite.dir/SourseLib/BMP_Process.cpp.obj CMakeFiles/PhotoShop-Lite.dir/PhotoShop-Lite_autogen/EWIEGA46WW/qrc_Res.cpp.obj | C$:/Qt/6.9.0/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.9.0/mingw_64/lib/libQt6Gui.a C$:/Qt/6.9.0/mingw_64/lib/libQt6Core.a C$:/Qt/6.9.0/mingw_64/lib/libQt6EntryPoint.a || PhotoShop-Lite_autogen PhotoShop-Lite_autogen_timestamp_deps
+build PhotoShop-Lite.exe: CXX_EXECUTABLE_LINKER__PhotoShop-Lite_Debug CMakeFiles/PhotoShop-Lite.dir/PhotoShop-Lite_autogen/mocs_compilation.cpp.obj CMakeFiles/PhotoShop-Lite.dir/main.cpp.obj CMakeFiles/PhotoShop-Lite.dir/mainwindow.cpp.obj CMakeFiles/PhotoShop-Lite.dir/SourseLib/BMP_Process.cpp.obj CMakeFiles/PhotoShop-Lite.dir/shrinkmage.cpp.obj CMakeFiles/PhotoShop-Lite.dir/PhotoShop-Lite_autogen/EWIEGA46WW/qrc_Res.cpp.obj | C$:/Qt/6.9.0/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.9.0/mingw_64/lib/libQt6Gui.a C$:/Qt/6.9.0/mingw_64/lib/libQt6Core.a C$:/Qt/6.9.0/mingw_64/lib/libQt6EntryPoint.a || PhotoShop-Lite_autogen PhotoShop-Lite_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG -g
   LINK_FLAGS = -mwindows
   LINK_LIBRARIES = C:/Qt/6.9.0/mingw_64/lib/libQt6Widgets.a  C:/Qt/6.9.0/mingw_64/lib/libQt6Gui.a  C:/Qt/6.9.0/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -lmingw32  C:/Qt/6.9.0/mingw_64/lib/libQt6EntryPoint.a  -lshell32  -ld3d11  -ldxgi  -ldxguid  -ld3d12  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
@@ -184,7 +192,7 @@ build PhotoShop-Lite_autogen_timestamp_deps: phony
 #############################################
 # Utility command for PhotoShop-Lite_autogen
 
-build PhotoShop-Lite_autogen: phony CMakeFiles/PhotoShop-Lite_autogen PhotoShop-Lite_autogen/include/ui_mainwindow.h PhotoShop-Lite_autogen/timestamp PhotoShop-Lite_autogen/mocs_compilation.cpp PhotoShop-Lite_autogen_timestamp_deps
+build PhotoShop-Lite_autogen: phony CMakeFiles/PhotoShop-Lite_autogen PhotoShop-Lite_autogen/include/ui_mainwindow.h PhotoShop-Lite_autogen/include/ui_shrinkmage.h PhotoShop-Lite_autogen/timestamp PhotoShop-Lite_autogen/mocs_compilation.cpp PhotoShop-Lite_autogen_timestamp_deps
 
 
 #############################################
@@ -210,7 +218,7 @@ build PhotoShop-Lite_autogen/EWIEGA46WW/qrc_Res.cpp | ${cmake_ninja_workdir}Phot
 #############################################
 # Phony custom command for CMakeFiles\PhotoShop-Lite_autogen
 
-build CMakeFiles/PhotoShop-Lite_autogen PhotoShop-Lite_autogen/include/ui_mainwindow.h | ${cmake_ninja_workdir}CMakeFiles/PhotoShop-Lite_autogen ${cmake_ninja_workdir}PhotoShop-Lite_autogen/include/ui_mainwindow.h: phony PhotoShop-Lite_autogen/timestamp || PhotoShop-Lite_autogen_timestamp_deps
+build CMakeFiles/PhotoShop-Lite_autogen PhotoShop-Lite_autogen/include/ui_mainwindow.h PhotoShop-Lite_autogen/include/ui_shrinkmage.h | ${cmake_ninja_workdir}CMakeFiles/PhotoShop-Lite_autogen ${cmake_ninja_workdir}PhotoShop-Lite_autogen/include/ui_mainwindow.h ${cmake_ninja_workdir}PhotoShop-Lite_autogen/include/ui_shrinkmage.h: phony PhotoShop-Lite_autogen/timestamp || PhotoShop-Lite_autogen_timestamp_deps
 
 # =============================================================================
 # Target aliases.
