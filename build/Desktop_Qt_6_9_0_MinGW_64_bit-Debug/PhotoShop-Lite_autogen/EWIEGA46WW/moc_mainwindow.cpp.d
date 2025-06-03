@@ -1,7 +1,7 @@
-C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/PhotoShop-Lite_autogen/EWIEGA46WW/moc_mainwindow.cpp: C:/QT_Program/PhotoShop-Lite/mainwindow.h \
+C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/PhotoShop-Lite_autogen/EWIEGA46WW/moc_mainwindow.cpp: C:/QT_Program/PhotoShop-Lite/Project/mainwindow.h \
   C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/PhotoShop-Lite_autogen/moc_predefs.h \
-  C:/QT_Program/PhotoShop-Lite/rotateimage.h \
-  C:/QT_Program/PhotoShop-Lite/shrinkmage.h \
+  C:/QT_Program/PhotoShop-Lite/Project/rotateimage.h \
+  C:/QT_Program/PhotoShop-Lite/Project/shrinkmage.h \
   C:/Qt/6.9.0/mingw_64/include/QtCore/QString \
   C:/Qt/6.9.0/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.9.0/mingw_64/include/QtCore/q20functional.h \

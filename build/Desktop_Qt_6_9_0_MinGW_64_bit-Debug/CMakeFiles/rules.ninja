@@ -42,7 +42,7 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = C:\Qt\Tools\CMake_64\bin\cmake.exe --regenerate-during-build -SC:\QT_Program\PhotoShop-Lite -BC:\QT_Program\PhotoShop-Lite\build\Desktop_Qt_6_9_0_MinGW_64_bit-Debug
+  command = C:\Qt\Tools\CMake_64\bin\cmake.exe --regenerate-during-build -SC:\QT_Program\PhotoShop-Lite\Project -BC:\QT_Program\PhotoShop-Lite\build\Desktop_Qt_6_9_0_MinGW_64_bit-Debug
   description = Re-running CMake...
   generator = 1
 

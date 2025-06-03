@@ -301,7 +301,7 @@ PhotoShop-Lite_BINARY_DIR:STATIC=C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6
 PhotoShop-Lite_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
-PhotoShop-Lite_SOURCE_DIR:STATIC=C:/QT_Program/PhotoShop-Lite
+PhotoShop-Lite_SOURCE_DIR:STATIC=C:/QT_Program/PhotoShop-Lite/Project
 
 //Additional directories where find(Qt6 ...) host Qt components
 // are searched
@@ -442,7 +442,7 @@ CMAKE_GENERATOR_TOOLSET:INTERNAL=
 CMAKE_HAVE_LIBC_PTHREAD:INTERNAL=1
 //Source directory with the top level CMakeLists.txt file for this
 // project
-CMAKE_HOME_DIRECTORY:INTERNAL=C:/QT_Program/PhotoShop-Lite
+CMAKE_HOME_DIRECTORY:INTERNAL=C:/QT_Program/PhotoShop-Lite/Project
 //ADVANCED property for variable: CMAKE_INSTALL_BINDIR
 CMAKE_INSTALL_BINDIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_INSTALL_DATADIR

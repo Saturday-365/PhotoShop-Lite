@@ -1,4 +1,4 @@
-# Install script for directory: C:/QT_Program/PhotoShop-Lite
+# Install script for directory: C:/QT_Program/PhotoShop-Lite/Project
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
