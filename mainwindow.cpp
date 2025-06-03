@@ -1,7 +1,5 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
-#include "shrinkmage.h"
-// #include "ui_shrinkmage.h"
 #include <QIcon>
 #include <QPixmap>
 #include <QPalette>
@@ -83,21 +81,15 @@ void MainWindow::Button_medianFilter(){
     char bmp_name1[50] = "hqu.bmp"; // 输入BMP图像文件的名称
     char bmp_name2[50] = "new.bmp"; // 输出BMP图像文件的名称
     Process.medianFilter(sFilePath,sFilePath_Out);//执行bmp处理函数
-
-    QPixmap pixmapin(FilePath_Out);
-    if(!pixmapin.isNull()){
-        ui->Pic_label->clear();
-        QSize lableSize = ui->Pic_label->size();   // 获取当前窗口大小
-        ui->Pic_label->setPixmap(pixmapin.scaled(lableSize,Qt::KeepAspectRatio,Qt::SmoothTransformation));  //将图片按照原来的宽高比进行缩放到指定lable的大小
-        ui->Pic_label->setAlignment(Qt::AlignCenter);//图片居中这个lable
-    }
+    reflash_PicShow();
 
 }
 
 void MainWindow::on_mode3Btn_clicked()
 {
-    Shrinkmage *configWindow = new Shrinkmage(this);
-    configWindow->show();
+    shrinkWindow = new Shrinkmage(this);
+    shrinkWindow->setWindowFlags(shrinkWindow->windowFlags() | Qt::Window);//在子窗口的构造函数或者显示之前，明确设置Qt::Window标志：
+    shrinkWindow->show();
 
 
 }
@@ -116,4 +108,13 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+
+void MainWindow::on_mode4Btn_clicked()
+{
+    rotateWindow = new rotateimage(this);
+    rotateWindow->setWindowFlags(rotateWindow->windowFlags() | Qt::Window);//在子窗口的构造函数或者显示之前，明确设置Qt::Window标志：
+    rotateWindow->show();
+
+}
 

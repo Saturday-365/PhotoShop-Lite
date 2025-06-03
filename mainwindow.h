@@ -8,9 +8,11 @@
 #include <QComboBox>
 #include <QImage>
 #include <qlabel.h>
-
+#include "shrinkmage.h"
+#include "rotateimage.h"
 
 QT_BEGIN_NAMESPACE
+
 namespace Ui {
 class MainWindow;
 }
@@ -23,6 +25,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
     void reflash_PicShow();
 
  private:
@@ -44,8 +47,11 @@ private slots: //定义槽函数
 
     void on_mode3Btn_clicked();
 
+    void on_mode4Btn_clicked();
+
 private:
     Ui::MainWindow *ui;
-
+    Shrinkmage *shrinkWindow;
+    rotateimage *rotateWindow;
 };
 #endif // MAINWINDOW_H

@@ -19,7 +19,7 @@ public:
 
 private slots: //定义槽函数
     void Button_shrinkImage();
-    void Button_rotateImage();
+
 
 
 private:

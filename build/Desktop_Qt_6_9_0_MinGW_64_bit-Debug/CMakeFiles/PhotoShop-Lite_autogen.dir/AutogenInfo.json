@@ -345,6 +345,12 @@
 			null
 		],
 		[
+			"C:/QT_Program/PhotoShop-Lite/rotateimage.h",
+			"MU",
+			"EWIEGA46WW/moc_rotateimage.cpp",
+			null
+		],
+		[
 			"C:/QT_Program/PhotoShop-Lite/shrinkmage.h",
 			"MU",
 			"EWIEGA46WW/moc_shrinkmage.cpp",
@@ -425,6 +431,7 @@
 		[ "C:/QT_Program/PhotoShop-Lite/SourseLib/BMP_Process.cpp", "MU", null ],
 		[ "C:/QT_Program/PhotoShop-Lite/main.cpp", "MU", null ],
 		[ "C:/QT_Program/PhotoShop-Lite/mainwindow.cpp", "MU", null ],
+		[ "C:/QT_Program/PhotoShop-Lite/rotateimage.cpp", "MU", null ],
 		[ "C:/QT_Program/PhotoShop-Lite/shrinkmage.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
