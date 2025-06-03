@@ -46,7 +46,6 @@ private slots: //定义槽函数
 //     bool event(QEvent *event);//判断处理鼠标事件
 
     void on_mode3Btn_clicked();
-
     void on_mode4Btn_clicked();
 
 private:

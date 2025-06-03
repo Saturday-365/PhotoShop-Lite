@@ -2,8 +2,10 @@
 #include "ui_shrinkmage.h"
 #include "./SourseLib/BMP_Process.h"
 #include "mainwindow.h"
-double shrink_factor=0;
-int shrink_factor_int=10;
+double shrink_xfactor=0;
+int shrink_xfactor_int=10;
+double shrink_yfactor=0;
+int shrink_yfactor_int=10;
 extern BMP_Process Process;
 extern QString FilePath,FilePath_Out;
 extern string sFilePath,sFilePath_Out;
@@ -26,8 +28,11 @@ Shrinkmage::Shrinkmage(QWidget *parent)
 
     this->setPalette(palette);   //将调色板应用到windows
 
-    connect(ui->QSLShrinkFactor,SIGNAL(valueChanged(int)),ui->QSPShrinkFactor,SLOT(setValue(int)));//按钮链接槽函数 进行缩小图片的计算
-    connect(ui->QSPShrinkFactor,SIGNAL(valueChanged(int)),ui->QSLShrinkFactor,SLOT(setValue(int)));//按钮链接槽函数 进行缩小图片的计算
+    connect(ui->QSLShrinkxFactor,SIGNAL(valueChanged(int)),ui->QSPShrinkxFactor,SLOT(setValue(int)));//按钮链接槽函数 进行缩小图片的计算
+    connect(ui->QSPShrinkxFactor,SIGNAL(valueChanged(int)),ui->QSLShrinkxFactor,SLOT(setValue(int)));//按钮链接槽函数 进行缩小图片的计算
+
+    connect(ui->QSLShrinkyFactor,SIGNAL(valueChanged(int)),ui->QSPShrinkyFactor,SLOT(setValue(int)));//按钮链接槽函数 进行缩小图片的计算
+    connect(ui->QSPShrinkyFactor,SIGNAL(valueChanged(int)),ui->QSLShrinkyFactor,SLOT(setValue(int)));//按钮链接槽函数 进行缩小图片的计算
 
     connect(ui->ConfirmButton,&QPushButton::clicked,this,&Shrinkmage::Button_shrinkImage);//按钮链接槽函数 进行缩小图片的计算
 
@@ -36,10 +41,14 @@ Shrinkmage::Shrinkmage(QWidget *parent)
 }
 
 void Shrinkmage::Button_shrinkImage(){
-    shrink_factor_int = ui->QSPShrinkFactor->value();
-    shrink_factor=shrink_factor_int/100.0;
-    ui->FactorShow->setNum(shrink_factor_int);
-    Process.shrinkImage(sFilePath,sFilePath_Out,shrink_factor);
+    shrink_xfactor_int = ui->QSPShrinkxFactor->value();
+    shrink_xfactor=shrink_xfactor_int/100.0;
+    // shrink_xfactor=0.5;
+    shrink_yfactor_int = ui->QSPShrinkyFactor->value();
+    shrink_yfactor=shrink_yfactor_int/100.0;
+    // shrink_yfactor=0.5;
+    //ui->FactorShow->setNum(shrink_factor_int);  //测试用
+    Process.shrinkImage(sFilePath,sFilePath_Out,shrink_xfactor,shrink_yfactor);
     m_parent->reflash_PicShow();
 }
 

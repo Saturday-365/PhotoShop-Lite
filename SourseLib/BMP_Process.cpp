@@ -117,47 +117,72 @@ void BMP_Process::medianFilter(string name, string new_name) {
   delete[] data;
   delete[] new_data;
 }
-
+// 计算每行像素数据的字节数（必须是4的倍数）
+uint32 BMP_Process::calculateRowSize(uint32 width) {
+    return 4 * ((width * 3 + 3) / 4); // 确保每行字节数是4的倍数
+}
 // 图像缩小函数
-void BMP_Process::shrinkImage(string name, string new_name, double ratio) {
+void BMP_Process::shrinkImage(string name, string new_name, double ratio_x,double ratio_y) {
   uint32 width, height, data_offset, data_size;
   uint8 *data;
   readBMPInfo(name, width, height, data_offset, data_size, data);
 
-  // 计算缩小后的图像大小
-  uint32 new_width = static_cast<uint32>(width * ratio);
-  uint32 new_height = static_cast<uint32>(height * ratio);
+  // // 计算缩小后的图像大小
+  // uint32 new_width = static_cast<uint32>(width * xratio);
+  // uint32 new_height = static_cast<uint32>(height * yratio);
+  // uint32 num_width = data_size / height; // 计算原始图像每行数据的字节数
+  // uint32 new_num_width =4 * ceil(new_width * 3.0 /4); // 计算缩小后图像每行数据的字节数（按4字节对齐）
+  // uint32 new_data_size = new_num_width * new_height; // 计算缩小后图像的数据大小
+  // // 动态分配内存用于存储缩小后的图像数据
+  // uint8 *new_data = new uint8[new_data_size];
+  // memset(new_data, 0, new_data_size);
 
-  uint32 num_width = data_size / height; // 计算原始图像每行数据的字节数
+  // // 遍历缩小后图像的每个像素
+  // for (int i = 0; i < new_height; i++) {
+  //   for (int j = 0; j < new_width; j++) {
+  //     // 计算原图像的像素坐标
+  //     int src_i = static_cast<int>(i / xratio);
+  //     int src_j = static_cast<int>(j / yratio);
+  //     // 遍历每个像素的三个通道
+  //     for (int c = 0; c < 3; c++) {
+  //       // 将原始图像对应像素的颜色值赋给缩小后图像的对应像素
+  //       *(new_data + i * new_num_width + j * 3 + c) =*(data + src_i * num_width + src_j * 3 + c);
+  //     }
+  //   }
+  // }
+  uint32 new_width = static_cast<uint32>(width * ratio_x);
+  uint32 new_height = static_cast<uint32>(height * ratio_y);
 
-  uint32 new_num_width =
-      4 * ceil(new_width * 3.0 /
-               4); // 计算缩小后图像每行数据的字节数（按4字节对齐）
+  // 计算新旧图像每行字节数
+  uint32 row_size = calculateRowSize(width);
+  uint32 new_row_size = calculateRowSize(new_width);
+  uint32 new_data_size = new_row_size * new_height;
 
-  uint32 new_data_size = new_num_width * new_height; // 计算缩小后图像的数据大小
-  // 动态分配内存用于存储缩小后的图像数据
   uint8 *new_data = new uint8[new_data_size];
   memset(new_data, 0, new_data_size);
 
-  // 遍历缩小后图像的每个像素
   for (int i = 0; i < new_height; i++) {
-    for (int j = 0; j < new_width; j++) {
-      // 计算原图像的像素坐标
-      int src_i = (int)(i / ratio);
-      int src_j = (int)(j / ratio);
-      // 遍历每个像素的三个通道
-      for (int c = 0; c < 3; c++) {
-        // 将原始图像对应像素的颜色值赋给缩小后图像的对应像素
-        *(new_data + i * new_num_width + j * 3 + c) =
-            *(data + src_i * num_width + src_j * 3 + c);
+      for (int j = 0; j < new_width; j++) {
+          // 计算源图像中的对应位置（使用最近邻插值）
+          int src_i = static_cast<int>(i / ratio_y + 0.5);
+          int src_j = static_cast<int>(j / ratio_x + 0.5);
+
+          // 确保不越界
+          src_i = min(src_i, static_cast<int>(height) - 1);
+          src_j = min(src_j, static_cast<int>(width) - 1);
+
+          for (int c = 0; c < 3; c++) {
+              // 直接使用最近邻像素值
+              *(new_data + i * new_row_size + j * 3 + c) = *(data + src_i * row_size + src_j * 3 + c);
+          }
       }
-    }
   }
-  writeBMPInfo(new_name, new_width, new_height, data_offset, new_data_size,
-               new_data, name);
+
+  writeBMPInfo(new_name, new_width, new_height, data_offset, new_data_size,new_data, name);
   delete[] data;
   delete[] new_data;
 }
+
 
 // 图像旋转
 void BMP_Process::rotateImage(string name, string new_name, double angle,
