@@ -23,3 +23,8 @@ https://blog.csdn.net/yanghz/article/details/135004353 Qt6.5类库详解：QText
 https://blog.csdn.net/qq_45652092/article/details/111183979 Qt中的Qlabel类（标签类）详解
 <!-- https://blog.csdn.net/qq_14945437/article/details/98730805 Qt之QSlider介绍(属性设置、信号、实现滑块移动到鼠标点击位置) -->
 https://blog.csdn.net/Sakuya__/article/details/105885764  QT 在子窗口中调用主窗口的UI
+https://blog.csdn.net/yy_xzz/article/details/148299320  Qt 窗口标志（Window Flags）详解：控制窗口样式与行为
+https://blog.csdn.net/qq_44084616/article/details/109612685
+https://juejin.cn/post/7186248005496864824  无边框窗口圆角
+https://blog.csdn.net/qq_44084616/article/details/109612685  无边框窗口移动
+https://blog.csdn.net/hiwoshixiaoyu/article/details/122468086 ui界面布局

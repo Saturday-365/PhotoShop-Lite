@@ -3,5 +3,10 @@
         <file>Icon/star.png</file>
         <file>Icon/wating.png</file>
         <file>Picture/mclaren senna wallpaper.jpg</file>
+        <file>Icon/close.png</file>
+        <file>Icon/closestay.png</file>
+        <file>Icon/maxbtn.png</file>
+        <file>Icon/minbtn.png</file>
+        <file>Icon/background.png</file>
     </qresource>
 </RCC>
