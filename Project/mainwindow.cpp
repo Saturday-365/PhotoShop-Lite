@@ -34,23 +34,33 @@ MainWindow::MainWindow(QWidget *parent)
     t->setSingleShot(true);
     t->start(10);
 
-    QPixmap pixmapAPPpix(":/Icon/closestay.png");
+    QPixmap pixmapAPPpix(":/Icon/close.png");  //设置左上角图标
+    //QPixmap pixmapclosepix(":/Icon/close.png");  //设置左上角图标
     if(!pixmapAPPpix.isNull()){
         ui->APPpixLable->clear();
         QSize lableSize = pixmapAPPpix.size(); //设置大小为图片大小
-        //QSize lableSize = ui->APPpixLable->size();//设置大小为图标大小
+        // QSize lableSize = ui->APPpixLable->size();//设置大小为图标大小
         ui->APPpixLable->setPixmap(pixmapAPPpix.scaled(lableSize,Qt::KeepAspectRatio,Qt::SmoothTransformation));  //将图片按照原来的宽高比进行缩放到指定lable的大小
         ui->APPpixLable->setAlignment(Qt::AlignCenter);//图片居中这个lable
     }
 
-    QPixmap pixmapbackground(":/Icon/background.png");
+    QPixmap pixmapbackground(":/Icon/background.png");  //设置图片显示位置背景浅蓝色
     if(!pixmapbackground.isNull()){
         ui->backgroundlabel->clear();
         //QSize lableSize = pixmapbackground.size(); //设置大小为图片大小
         QSize lableSize = ui->backgroundlabel->size();//设置大小为图标大小
-        ui->backgroundlabel->setPixmap(pixmapbackground.scaled(lableSize,Qt::IgnoreAspectRatio,Qt::SmoothTransformation));  //将图片按照原来的宽高比进行缩放到指定lable的大小
+        ui->backgroundlabel->setPixmap(pixmapbackground.scaled(lableSize,Qt::KeepAspectRatio,Qt::SmoothTransformation));  //将图片按照原来的宽高比进行缩放到指定lable的大小
         ui->backgroundlabel->setAlignment(Qt::AlignCenter);//图片居中这个lable
     }
+
+    // QPixmap pixmapbarbackground(":/Icon/barbackground.png");  //顶部bar透明黑色背景
+    // if(!pixmapbackground.isNull()){
+    //     ui->label->clear();
+    //     //QSize lableSize = pixmapbarbackground.size(); //设置大小为图片大小
+    //     QSize lableSize = ui->label->size();//设置大小为图标大小
+    //     ui->label->setPixmap(pixmapbarbackground.scaled(lableSize,Qt::IgnoreAspectRatio,Qt::SmoothTransformation));  //将图片按照原来的宽高比进行缩放到指定lable的大小
+    //     ui->label->setAlignment(Qt::AlignCenter);//图片居中这个lable
+    // }
     // setWindowTitle("PhotoShop Lite"); //设置窗口标题
     // setFixedSize(960,540);
     //setBackGround(":/Picture/mclaren senna wallpaper.jpg"); //设置背景
@@ -75,13 +85,13 @@ void MainWindow::Init()
                       + QString::asprintf(";border-radius:%dpx", cornerRadius)
                       + "}");
     ui->mainWidget->setStyleSheet(mainStyle);
-    //设置投影效果
-    QGraphicsDropShadowEffect *windowShadow;        //阴影效果
-    windowShadow = new QGraphicsDropShadowEffect(this);
-    windowShadow->setBlurRadius(30);
-    windowShadow->setColor(QColor(0, 0, 0));
-    windowShadow->setOffset(0, 0);
-    ui->mainWidget->setGraphicsEffect(windowShadow);
+    // //设置投影效果
+    // QGraphicsDropShadowEffect *windowShadow;        //阴影效果
+    // windowShadow = new QGraphicsDropShadowEffect(this);
+    // windowShadow->setBlurRadius(30);
+    // windowShadow->setColor(QColor(0, 0, 0));
+    // windowShadow->setOffset(1, 1);
+    // ui->mainWidget->setGraphicsEffect(windowShadow);
 }
 
 void MainWindow::setBackGround(const QString & filename)  //设置背景
@@ -111,10 +121,10 @@ void MainWindow::setbarButtonStyle(QPushButton * button , const QString & filena
 }
 void MainWindow::initButtons()
 {
-    setButtonStyle(ui->mode1Btn, ":/Icon/wating.png");
-    setButtonStyle(ui->mode2Btn, ":/Icon/wating.png");
-    setButtonStyle(ui->mode3Btn, ":/Icon/wating.png");
-    setButtonStyle(ui->mode4Btn, ":/Icon/wating.png");
+    setButtonStyle(ui->mode1Btn, ":/Icon/choosebtn.png");
+    setButtonStyle(ui->mode2Btn, ":/Icon/flitbtn.png");
+    setButtonStyle(ui->mode3Btn, ":/Icon/shrinkbtn.png");
+    setButtonStyle(ui->mode4Btn, ":/Icon/rottbtn.png");
     setbarButtonStyle(ui->maxBtn, ":/Icon/maxbtn.png");
     setbarButtonStyle(ui->minBtn, ":/Icon/minbtn.png");
     setbarButtonStyle(ui->closeBtn, ":/Icon/close.png");
@@ -207,18 +217,18 @@ void MainWindow::on_closeBtn_clicked()
 //放大，缩小界面
 void MainWindow::on_maxBtn_clicked()
 {
-    static bool max = false;
-    static QRect location = this->geometry();
-    if (max) {
-        this->setGeometry(location);//回复窗口原大小和位置
-        ui->maxBtn->setIcon(QIcon(":/MAX_.png"));
-    }else {
-        ui->maxBtn->setIcon(QIcon(":/minMAX.png"));
-        location = this->geometry();	//最大化前记录窗口大小和位置
-        //this->setGeometry(qApp->desktop()->availableGeometry());
-        this->showFullScreen();	//设置窗口铺满全屏
-    }
-    max = !max;
+    // static bool max = false;
+    // static QRect location = this->geometry();
+    // if (max) {
+    //     this->setGeometry(location);//回复窗口原大小和位置
+    //     ui->maxBtn->setIcon(QIcon(":/MAX_.png"));
+    // }else {
+    //     ui->maxBtn->setIcon(QIcon(":/minMAX.png"));
+    //     location = this->geometry();	//最大化前记录窗口大小和位置
+    //     //this->setGeometry(qApp->desktop()->availableGeometry());
+    //     this->showFullScreen();	//设置窗口铺满全屏
+    // }
+    // max = !max;
 }
 
 

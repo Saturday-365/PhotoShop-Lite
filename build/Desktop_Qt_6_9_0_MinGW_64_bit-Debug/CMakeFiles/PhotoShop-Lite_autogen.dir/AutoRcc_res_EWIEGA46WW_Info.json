@@ -9,12 +9,17 @@
 	"INCLUDE_DIR" : "C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/PhotoShop-Lite_autogen/include",
 	"INPUTS" : 
 	[
+		"C:/QT_Program/PhotoShop-Lite/Project/Icon/barbackground.png",
 		"C:/QT_Program/PhotoShop-Lite/Project/Icon/wating.png",
 		"C:/QT_Program/PhotoShop-Lite/Project/Icon/background.png",
 		"C:/QT_Program/PhotoShop-Lite/Project/Icon/maxbtn.png",
 		"C:/QT_Program/PhotoShop-Lite/Project/Icon/star.png",
 		"C:/QT_Program/PhotoShop-Lite/Project/Icon/minbtn.png",
+		"C:/QT_Program/PhotoShop-Lite/Project/Icon/choosebtn.png",
 		"C:/QT_Program/PhotoShop-Lite/Project/Icon/closestay.png",
+		"C:/QT_Program/PhotoShop-Lite/Project/Icon/flitbtn.png",
+		"C:/QT_Program/PhotoShop-Lite/Project/Icon/rottbtn.png",
+		"C:/QT_Program/PhotoShop-Lite/Project/Icon/shrinkbtn.png",
 		"C:/QT_Program/PhotoShop-Lite/Project/Icon/close.png",
 		"C:/QT_Program/PhotoShop-Lite/Project/Picture/mclaren senna wallpaper.jpg"
 	],

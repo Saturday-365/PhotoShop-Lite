@@ -8,5 +8,10 @@
         <file>Icon/maxbtn.png</file>
         <file>Icon/minbtn.png</file>
         <file>Icon/background.png</file>
+        <file>Icon/barbackground.png</file>
+        <file>Icon/choosebtn.png</file>
+        <file>Icon/flitbtn.png</file>
+        <file>Icon/rottbtn.png</file>
+        <file>Icon/shrinkbtn.png</file>
     </qresource>
 </RCC>
