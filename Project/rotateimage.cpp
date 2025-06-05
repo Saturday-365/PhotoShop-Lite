@@ -21,19 +21,12 @@ rotateimage::rotateimage(QWidget *parent)
     setFixedSize(400,225);
 
     // setWindowFlag(Qt::FramelessWindowHint);         //无边框
-    //setAttribute(Qt::WA_TranslucentBackground);     //窗口透明
 
-    // QString filename = ":/Picture/mclaren senna wallpaper.jpg"; //设置背景
-    // QPixmap pixmap(filename);//创建照片
-    // QSize windowsSize = this->size(); // 获取当前窗口大小
-    // QPixmap scalePixmap = pixmap.scaled(windowsSize,Qt::KeepAspectRatio,Qt::SmoothTransformation); //讲图片所放到当前窗口的大小
     // QPalette palette = this->palette();   //创建pattle对象并设置背景照片 调色板
-    // palette.setBrush(QPalette::Window,QBrush(scalePixmap));
-
-    // this->setPalette(palette);   //将调色板应用到windows
+    // palette.setBrush(QPalette::Window,QBrush(QColor(56, 119, 246)));
 
     setWindowFlag(Qt::FramelessWindowHint);         //无边框
-    //setAttribute(Qt::WA_TranslucentBackground);     //窗口透明
+    setAttribute(Qt::WA_TranslucentBackground);     //窗口透明
 
     //设置投影效果
     // QGraphicsDropShadowEffect *windowShadow;        //阴影效果
@@ -44,10 +37,33 @@ rotateimage::rotateimage(QWidget *parent)
     // ui->frame->setGraphicsEffect(windowShadow);
 
 
+    QPixmap labelpixmapin(FilePath);
+    if(!labelpixmapin.isNull()){
+        ui->label_pic->clear();
+        // QSize lableSize = pixmapin.size();
+        QSize lableSize = ui->label_pic->size();
+        ui->label_pic->setPixmap(labelpixmapin.scaled(lableSize,Qt::KeepAspectRatio,Qt::SmoothTransformation));  //将图片按照原来的宽高比进行缩放到指定lable的大小
+        ui->label_pic->setAlignment(Qt::AlignCenter);//图片居中这个lable
+    }
+    QPixmap labelpixbackmapin(":/Icon/glooo130x80.png");
+    if(!labelpixbackmapin.isNull()){
+        ui->label_pic_Back->clear();
+        // QSize lableSize = pixmapin.size();
+        QSize lableSize = ui->label_pic_Back->size();
+        ui->label_pic_Back->setPixmap(labelpixbackmapin.scaled(lableSize,Qt::KeepAspectRatio,Qt::SmoothTransformation));  //将图片按照原来的宽高比进行缩放到指定lable的大小
+        ui->label_pic_Back->setAlignment(Qt::AlignCenter);//图片居中这个lable
+    }
+
+
     ui->closebut->setFixedSize(30,30);//设置按钮大小
-    ui->closebut->setIcon(QIcon(":/Icon/chose.png"));//设置按钮图标
+    ui->closebut->setIcon(QIcon(":/Icon/close111.png"));//设置按钮图标
     ui->closebut->setIconSize(QSize(ui->closebut->width(),ui->closebut->height()));//设置按钮图标大小
     ui->closebut->setStyleSheet("background-color:transparent");
+
+    ui->confirmbutton->setFixedSize(77,30);//设置按钮大小
+    ui->confirmbutton->setIcon(QIcon(":/Icon/confirmbtnicon.png"));//设置按钮图标
+    ui->confirmbutton->setIconSize(QSize(ui->confirmbutton->width(),ui->confirmbutton->height()));//设置按钮图标大小
+    ui->confirmbutton->setStyleSheet("background-color:transparent");
 
     connect(ui->horizontalSlider_xdata,SIGNAL(valueChanged(int)),ui->spinBox_xdata,SLOT(setValue(int)));//按钮链接槽函数 进行缩小图片的计算
     connect(ui->spinBox_xdata,SIGNAL(valueChanged(int)),ui->horizontalSlider_xdata,SLOT(setValue(int)));//按钮链接槽函数 进行缩小图片的计算

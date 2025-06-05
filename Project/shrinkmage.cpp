@@ -35,17 +35,22 @@ Shrinkmage::Shrinkmage(QWidget *parent)
     setAttribute(Qt::WA_TranslucentBackground);     //窗口透明
 
     //设置投影效果
-    QGraphicsDropShadowEffect *windowShadow;        //阴影效果
-    windowShadow = new QGraphicsDropShadowEffect(this);
-    windowShadow->setBlurRadius(5);
-    windowShadow->setColor(QColor(100, 100, 100));
-    windowShadow->setOffset(5, 5);
-    ui->frame->setGraphicsEffect(windowShadow);
+    // QGraphicsDropShadowEffect *windowShadow;        //阴影效果
+    // windowShadow = new QGraphicsDropShadowEffect(this);
+    // windowShadow->setBlurRadius(5);
+    // windowShadow->setColor(QColor(100, 100, 100));
+    // windowShadow->setOffset(5, 5);
+    // ui->frame->setGraphicsEffect(windowShadow);
 
     ui->closebtn->setFixedSize(30,30);//设置按钮大小
-    ui->closebtn->setIcon(QIcon(":/Icon/chose.png"));//设置按钮图标
+    ui->closebtn->setIcon(QIcon(":/Icon/close111.png"));//设置按钮图标
     ui->closebtn->setIconSize(QSize(ui->closebtn->width(),ui->closebtn->height()));//设置按钮图标大小
     ui->closebtn->setStyleSheet("background-color:transparent");
+
+    ui->ConfirmButton->setFixedSize(77,30);//设置按钮大小
+    ui->ConfirmButton->setIcon(QIcon(":/Icon/confirmbtnicon.png"));//设置按钮图标
+    ui->ConfirmButton->setIconSize(QSize(ui->ConfirmButton->width(),ui->ConfirmButton->height()));//设置按钮图标大小
+    ui->ConfirmButton->setStyleSheet("background-color:transparent");
 
     connect(ui->QSLShrinkxFactor,SIGNAL(valueChanged(int)),ui->QSPShrinkxFactor,SLOT(setValue(int)));//按钮链接槽函数 进行缩小图片的计算
     connect(ui->QSPShrinkxFactor,SIGNAL(valueChanged(int)),ui->QSLShrinkxFactor,SLOT(setValue(int)));//按钮链接槽函数 进行缩小图片的计算

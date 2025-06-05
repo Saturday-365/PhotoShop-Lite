@@ -1,0 +1,9 @@
+C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/CMakeFiles/PhotoShop-Lite.dir
+C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/CMakeFiles/edit_cache.dir
+C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/CMakeFiles/rebuild_cache.dir
+C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/CMakeFiles/list_install_components.dir
+C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/CMakeFiles/install.dir
+C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/CMakeFiles/install/local.dir
+C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/CMakeFiles/install/strip.dir
+C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/CMakeFiles/PhotoShop-Lite_autogen_timestamp_deps.dir
+C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/CMakeFiles/PhotoShop-Lite_autogen.dir

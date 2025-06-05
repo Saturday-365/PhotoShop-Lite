@@ -46,7 +46,7 @@ MainWindow::MainWindow(QWidget *parent)
         ui->APPpixLable->setAlignment(Qt::AlignCenter);//图片居中这个lable
     }
 
-    QPixmap pixmapdatalableground(":/Icon/blue120x100.png");  //设置图片显示位置背景浅蓝色
+    QPixmap pixmapdatalableground(":/Icon/smile.png");  //设置加载区图片显示位置背景
     if(!pixmapdatalableground.isNull()){
         ui->textlabel->clear();
         QSize lableSize = pixmapdatalableground.size(); //设置大小为图片大小
@@ -55,7 +55,7 @@ MainWindow::MainWindow(QWidget *parent)
         ui->textlabel->setAlignment(Qt::AlignCenter);//图片居中这个lable
     }
 
-    QPixmap pixmaptextlableground(":/Icon/blue690x100.png");  //设置图片显示位置背景浅蓝色
+    QPixmap pixmaptextlableground(":/Icon/blue690x100.png");  //设置图片地址显示位置背景浅蓝色
     if(!pixmaptextlableground.isNull()){
         ui->datalable->clear();
         QSize lableSize = pixmaptextlableground.size(); //设置大小为图片大小
@@ -159,6 +159,16 @@ void MainWindow::reflash_PicShow(){
         ui->Pic_label->setPixmap(pixmapin.scaled(lableSize,Qt::KeepAspectRatio,Qt::SmoothTransformation));  //将图片按照原来的宽高比进行缩放到指定lable的大小
         ui->Pic_label->setAlignment(Qt::AlignCenter);//图片居中这个lable
     }
+
+    QPixmap pixmap1(":/Icon/finish.png");  //设置加载区图片显示位置背景
+    if(!pixmap1.isNull()){
+        ui->textlabel->clear();
+        QSize lableSize = pixmap1.size(); //设置大小为图片大小
+        //QSize lableSize = ui->textlabel->size();//设置大小为图标大小
+        ui->textlabel->setPixmap(pixmap1.scaled(lableSize,Qt::KeepAspectRatio,Qt::SmoothTransformation));  //将图片按照原来的宽高比进行缩放到指定lable的大小
+        ui->textlabel->setAlignment(Qt::AlignCenter);//图片居中这个lable
+    }
+
 }
 void MainWindow::Button_OpenFile(){  //打开图片文件槽函数，返回这个文件的路径
 
@@ -175,7 +185,10 @@ void MainWindow::Button_OpenFile(){  //打开图片文件槽函数，返回这�
     sFilePath = FilePath.toStdString();
     sFilePath=Process.convertPath(sFilePath);   //转化路径格式为io流可以读取的格式 /*  "/"->"\\" */
     //ui->Pic_filepath_textEdit->insertPlainText(FilePath);// 显示打开的图片的路径
+
     ui->filepath_label->setText(FilePath);
+    ui->filepath_label->setAlignment(Qt::AlignCenter);//图片居中这个lable
+
     if(!FilePath.isNull()){
         QPixmap pixmapin(FilePath);
         if(!pixmapin.isNull()){
@@ -188,14 +201,39 @@ void MainWindow::Button_OpenFile(){  //打开图片文件槽函数，返回这�
     sFilePath_Out= FilePath_Out.toStdString();
     sFilePath_Out=Process.convertPath(sFilePath_Out);   //转化路径格式为io流可以读取的格式 /*  "/"->"\\" */
 
+    QPixmap pixmap1(":/Icon/finish.png");  //设置加载区图片显示位置背景
+    if(!pixmap1.isNull()){
+        ui->textlabel->clear();
+        QSize lableSize = pixmap1.size(); //设置大小为图片大小
+        //QSize lableSize = ui->textlabel->size();//设置大小为图标大小
+        ui->textlabel->setPixmap(pixmap1.scaled(lableSize,Qt::KeepAspectRatio,Qt::SmoothTransformation));  //将图片按照原来的宽高比进行缩放到指定lable的大小
+        ui->textlabel->setAlignment(Qt::AlignCenter);//图片居中这个lable
+    }
+
 }
 void MainWindow::Button_medianFilter(){
-    ui->stagelabel->clear();
-    ui->stagelabel->setText("Waitting");
+
+    QPixmap pixmap1(":/Icon/doing.png");  //设置加载区图片显示位置背景
+    if(!pixmap1.isNull()){
+        ui->textlabel->clear();
+        QSize lableSize = pixmap1.size(); //设置大小为图片大小
+        //QSize lableSize = ui->textlabel->size();//设置大小为图标大小
+        ui->textlabel->setPixmap(pixmap1.scaled(lableSize,Qt::KeepAspectRatio,Qt::SmoothTransformation));  //将图片按照原来的宽高比进行缩放到指定lable的大小
+        ui->textlabel->setAlignment(Qt::AlignCenter);//图片居中这个lable
+    }
+
     ui->stagelabel->setAlignment(Qt::AlignCenter);//居中这个lable
     // QThread::msleep(2000);//阻塞延时50ms
     Process.medianFilter(sFilePath,sFilePath_Out);//执行bmp处理函数
-    ui->stagelabel->setText("Finish");
+
+    QPixmap pixmap2(":/Icon/finish.png");  //设置加载区图片显示位置背景
+    if(!pixmap1.isNull()){
+        ui->textlabel->clear();
+        QSize lableSize = pixmap2.size(); //设置大小为图片大小
+        //QSize lableSize = ui->textlabel->size();//设置大小为图标大小
+        ui->textlabel->setPixmap(pixmap2.scaled(lableSize,Qt::KeepAspectRatio,Qt::SmoothTransformation));  //将图片按照原来的宽高比进行缩放到指定lable的大小
+        ui->textlabel->setAlignment(Qt::AlignCenter);//图片居中这个lable
+    }
     reflash_PicShow();
 
 }

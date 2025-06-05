@@ -10,7 +10,7 @@
 #include <string>
 
 
-// #define M_PI 3.1415926; // 定义圆周率常量
+#define M_PI 3.1415926; // 定义圆周率常量
 
 string BMP_Process::convertPath(const string &path) {
   stringstream result;

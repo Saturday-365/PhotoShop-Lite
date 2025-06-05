@@ -21,5 +21,14 @@
         <file>Icon/blue120x100.png</file>
         <file>Icon/blue690x100.png</file>
         <file>Icon/things.png</file>
+        <file>Icon/blue130x80.png</file>
+        <file>Icon/gloo130x80.png</file>
+        <file>Icon/glooo130x80.png</file>
+        <file>Icon/confirmbtnicon.png</file>
+        <file>Icon/close1.png</file>
+        <file>Icon/close111.png</file>
+        <file>Icon/doing.png</file>
+        <file>Icon/finish.png</file>
+        <file>Icon/smile.png</file>
     </qresource>
 </RCC>

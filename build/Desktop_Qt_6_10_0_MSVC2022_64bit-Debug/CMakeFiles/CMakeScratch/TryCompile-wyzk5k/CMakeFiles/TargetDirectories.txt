@@ -1,0 +1,3 @@
+C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_10_0_MSVC2022_64bit-Debug/CMakeFiles/CMakeScratch/TryCompile-wyzk5k/CMakeFiles/cmTC_600d8.dir
+C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_10_0_MSVC2022_64bit-Debug/CMakeFiles/CMakeScratch/TryCompile-wyzk5k/CMakeFiles/edit_cache.dir
+C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_10_0_MSVC2022_64bit-Debug/CMakeFiles/CMakeScratch/TryCompile-wyzk5k/CMakeFiles/rebuild_cache.dir

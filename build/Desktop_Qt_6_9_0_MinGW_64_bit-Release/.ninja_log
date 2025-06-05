@@ -1,0 +1,15 @@
+# ninja log v6
+13	1495	7708395571942523	PhotoShop-Lite_autogen/timestamp	7416cb0030699e81
+13	1495	7708395571942523	PhotoShop-Lite_autogen/mocs_compilation.cpp	7416cb0030699e81
+13	1495	7708395571942523	C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/PhotoShop-Lite_autogen/timestamp	7416cb0030699e81
+13	1495	7708395571942523	C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/PhotoShop-Lite_autogen/mocs_compilation.cpp	7416cb0030699e81
+1506	1971	7708395577638844	PhotoShop-Lite_autogen/EWIEGA46WW/qrc_Res.cpp	6adbfd8edc131fde
+1506	1971	7708395577638844	C:/QT_Program/PhotoShop-Lite/build/Desktop_Qt_6_9_0_MinGW_64_bit-Release/PhotoShop-Lite_autogen/EWIEGA46WW/qrc_Res.cpp	6adbfd8edc131fde
+1987	5036	7708395577952322	CMakeFiles/PhotoShop-Lite.dir/SourseLib/BMP_Process.cpp.obj	2efc4dbd5c3272ba
+1977	7249	7708395577840886	CMakeFiles/PhotoShop-Lite.dir/main.cpp.obj	155c12eb9cb5fa23
+1971	7586	7708395577798897	CMakeFiles/PhotoShop-Lite.dir/PhotoShop-Lite_autogen/mocs_compilation.cpp.obj	2fd5df857a57086a
+1993	8429	7708395578003801	CMakeFiles/PhotoShop-Lite.dir/shrinkmage.cpp.obj	21d5a8893fd24493
+1998	8964	7708395578058742	CMakeFiles/PhotoShop-Lite.dir/rotateimage.cpp.obj	20e3af8f918365a0
+1982	9792	7708395577903111	CMakeFiles/PhotoShop-Lite.dir/mainwindow.cpp.obj	fd8a62ffcf2fc58c
+2004	14445	7708395578118583	CMakeFiles/PhotoShop-Lite.dir/PhotoShop-Lite_autogen/EWIEGA46WW/qrc_Res.cpp.obj	47f24aa2c4113cef
+14445	14791	7708395702530811	PhotoShop-Lite.exe	36b0bd243f9eca44
