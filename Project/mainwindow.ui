@@ -580,7 +580,7 @@
                <property name="font">
                 <font>
                  <family>HarmonyOS Sans SC</family>
-                 <pointsize>11</pointsize>
+                 <pointsize>14</pointsize>
                  <bold>true</bold>
                 </font>
                </property>
@@ -644,10 +644,10 @@
            <widget class="QWidget" name="layoutWidget">
             <property name="geometry">
              <rect>
-              <x>30</x>
-              <y>40</y>
-              <width>161</width>
-              <height>351</height>
+              <x>40</x>
+              <y>10</y>
+              <width>151</width>
+              <height>401</height>
              </rect>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -712,10 +712,16 @@
             <property name="geometry">
              <rect>
               <x>230</x>
-              <y>460</y>
-              <width>701</width>
-              <height>21</height>
+              <y>420</y>
+              <width>661</width>
+              <height>91</height>
              </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
             <property name="text">
              <string/>
@@ -747,10 +753,69 @@
              <string/>
             </property>
            </widget>
+           <widget class="QWidget" name="horizontalLayoutWidget_2">
+            <property name="geometry">
+             <rect>
+              <x>40</x>
+              <y>400</y>
+              <width>871</width>
+              <height>131</height>
+             </rect>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="3,1,16">
+             <item>
+              <widget class="QLabel" name="textlabel">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_2">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QLabel" name="datalable">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QLabel" name="stagelabel">
+            <property name="geometry">
+             <rect>
+              <x>60</x>
+              <y>430</y>
+              <width>91</width>
+              <height>71</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>24</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
            <zorder>backgroundlabel</zorder>
            <zorder>layoutWidget</zorder>
-           <zorder>filepath_label</zorder>
            <zorder>Pic_label</zorder>
+           <zorder>horizontalLayoutWidget_2</zorder>
+           <zorder>filepath_label</zorder>
+           <zorder>stagelabel</zorder>
           </widget>
          </item>
         </layout>

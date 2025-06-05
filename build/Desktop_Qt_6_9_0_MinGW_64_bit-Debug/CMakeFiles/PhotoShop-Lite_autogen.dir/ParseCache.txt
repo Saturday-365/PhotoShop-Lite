@@ -815,7 +815,6 @@ C:/QT_Program/PhotoShop-Lite/Project/rotateimage.h
  mdp:C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h
  mdp:C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h
-C:/QT_Program/PhotoShop-Lite/Project/SourseLib/BMP_Process.cpp
 C:/QT_Program/PhotoShop-Lite/Project/shrinkmage.h
  mmc:Q_OBJECT
  mdp:C:/QT_Program/PhotoShop-Lite/Project/shrinkmage.h
@@ -1188,9 +1187,10 @@ C:/QT_Program/PhotoShop-Lite/Project/shrinkmage.h
  mdp:C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h
  mdp:C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h
+C:/QT_Program/PhotoShop-Lite/Project/SourseLib/BMP_Process.cpp
+C:/QT_Program/PhotoShop-Lite/Project/main.cpp
 C:/QT_Program/PhotoShop-Lite/Project/mainwindow.cpp
  uic:./ui_mainwindow.h
-C:/QT_Program/PhotoShop-Lite/Project/main.cpp
 C:/QT_Program/PhotoShop-Lite/Project/rotateimage.cpp
  uic:ui_rotateimage.h
 C:/QT_Program/PhotoShop-Lite/Project/shrinkmage.cpp

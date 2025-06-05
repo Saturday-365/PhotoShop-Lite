@@ -13,5 +13,13 @@
         <file>Icon/flitbtn.png</file>
         <file>Icon/rottbtn.png</file>
         <file>Icon/shrinkbtn.png</file>
+        <file>Icon/image 807.png</file>
+        <file>Icon/image 811.png</file>
+        <file>Icon/image 1760.png</file>
+        <file>Icon/gloo180x130.png</file>
+        <file>Icon/blue690x130.png</file>
+        <file>Icon/blue120x100.png</file>
+        <file>Icon/blue690x100.png</file>
+        <file>Icon/things.png</file>
     </qresource>
 </RCC>

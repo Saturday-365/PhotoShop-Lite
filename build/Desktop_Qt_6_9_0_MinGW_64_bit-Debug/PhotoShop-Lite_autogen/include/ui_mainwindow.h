@@ -49,6 +49,12 @@ public:
     QLabel *filepath_label;
     QLabel *Pic_label;
     QLabel *backgroundlabel;
+    QWidget *horizontalLayoutWidget_2;
+    QHBoxLayout *horizontalLayout_2;
+    QLabel *textlabel;
+    QSpacerItem *horizontalSpacer_2;
+    QLabel *datalable;
+    QLabel *stagelabel;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -179,7 +185,7 @@ public:
         appnamelabel->setPalette(palette);
         QFont font;
         font.setFamilies({QString::fromUtf8("HarmonyOS Sans SC")});
-        font.setPointSize(11);
+        font.setPointSize(14);
         font.setBold(true);
         appnamelabel->setFont(font);
         appnamelabel->setCursor(QCursor(Qt::CursorShape::OpenHandCursor));
@@ -221,7 +227,7 @@ public:
         Displaywidget->setObjectName("Displaywidget");
         layoutWidget = new QWidget(Displaywidget);
         layoutWidget->setObjectName("layoutWidget");
-        layoutWidget->setGeometry(QRect(30, 40, 161, 351));
+        layoutWidget->setGeometry(QRect(40, 10, 151, 401));
         verticalLayout_2 = new QVBoxLayout(layoutWidget);
         verticalLayout_2->setObjectName("verticalLayout_2");
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
@@ -252,17 +258,52 @@ public:
 
         filepath_label = new QLabel(Displaywidget);
         filepath_label->setObjectName("filepath_label");
-        filepath_label->setGeometry(QRect(230, 460, 701, 21));
+        filepath_label->setGeometry(QRect(230, 420, 661, 91));
+        QFont font1;
+        font1.setPointSize(14);
+        font1.setBold(true);
+        filepath_label->setFont(font1);
         Pic_label = new QLabel(Displaywidget);
         Pic_label->setObjectName("Pic_label");
         Pic_label->setGeometry(QRect(230, 40, 670, 340));
         backgroundlabel = new QLabel(Displaywidget);
         backgroundlabel->setObjectName("backgroundlabel");
         backgroundlabel->setGeometry(QRect(220, 30, 690, 360));
+        horizontalLayoutWidget_2 = new QWidget(Displaywidget);
+        horizontalLayoutWidget_2->setObjectName("horizontalLayoutWidget_2");
+        horizontalLayoutWidget_2->setGeometry(QRect(40, 400, 871, 131));
+        horizontalLayout_2 = new QHBoxLayout(horizontalLayoutWidget_2);
+        horizontalLayout_2->setObjectName("horizontalLayout_2");
+        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
+        textlabel = new QLabel(horizontalLayoutWidget_2);
+        textlabel->setObjectName("textlabel");
+
+        horizontalLayout_2->addWidget(textlabel);
+
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer_2);
+
+        datalable = new QLabel(horizontalLayoutWidget_2);
+        datalable->setObjectName("datalable");
+
+        horizontalLayout_2->addWidget(datalable);
+
+        horizontalLayout_2->setStretch(0, 3);
+        horizontalLayout_2->setStretch(1, 1);
+        horizontalLayout_2->setStretch(2, 16);
+        stagelabel = new QLabel(Displaywidget);
+        stagelabel->setObjectName("stagelabel");
+        stagelabel->setGeometry(QRect(60, 430, 91, 71));
+        QFont font2;
+        font2.setPointSize(24);
+        stagelabel->setFont(font2);
         backgroundlabel->raise();
         layoutWidget->raise();
-        filepath_label->raise();
         Pic_label->raise();
+        horizontalLayoutWidget_2->raise();
+        filepath_label->raise();
+        stagelabel->raise();
 
         mainLayout->addWidget(Displaywidget);
 
@@ -293,6 +334,9 @@ public:
         filepath_label->setText(QString());
         Pic_label->setText(QString());
         backgroundlabel->setText(QString());
+        textlabel->setText(QString());
+        datalable->setText(QString());
+        stagelabel->setText(QString());
     } // retranslateUi
 
 };

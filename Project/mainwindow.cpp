@@ -11,6 +11,8 @@
 #include <QPainterPath>
 #include <QGraphicsDropShadowEffect>
 #include "./SourseLib/BMP_Process.h"
+#include <QThread>
+
 #define MARGIN 2
 
 QString FilePath,FilePath_Out;
@@ -34,17 +36,35 @@ MainWindow::MainWindow(QWidget *parent)
     t->setSingleShot(true);
     t->start(10);
 
-    QPixmap pixmapAPPpix(":/Icon/close.png");  //设置左上角图标
+    QPixmap pixmapAPPpix(":/Icon/image 1760.png");  //设置左上角图标
     //QPixmap pixmapclosepix(":/Icon/close.png");  //设置左上角图标
     if(!pixmapAPPpix.isNull()){
         ui->APPpixLable->clear();
-        QSize lableSize = pixmapAPPpix.size(); //设置大小为图片大小
-        // QSize lableSize = ui->APPpixLable->size();//设置大小为图标大小
+        //QSize lableSize = pixmapAPPpix.size(); //设置大小为图片大小
+         QSize lableSize = ui->APPpixLable->size();//设置大小为图标大小
         ui->APPpixLable->setPixmap(pixmapAPPpix.scaled(lableSize,Qt::KeepAspectRatio,Qt::SmoothTransformation));  //将图片按照原来的宽高比进行缩放到指定lable的大小
         ui->APPpixLable->setAlignment(Qt::AlignCenter);//图片居中这个lable
     }
 
-    QPixmap pixmapbackground(":/Icon/background.png");  //设置图片显示位置背景浅蓝色
+    QPixmap pixmapdatalableground(":/Icon/blue120x100.png");  //设置图片显示位置背景浅蓝色
+    if(!pixmapdatalableground.isNull()){
+        ui->textlabel->clear();
+        QSize lableSize = pixmapdatalableground.size(); //设置大小为图片大小
+        //QSize lableSize = ui->textlabel->size();//设置大小为图标大小
+        ui->textlabel->setPixmap(pixmapdatalableground.scaled(lableSize,Qt::KeepAspectRatio,Qt::SmoothTransformation));  //将图片按照原来的宽高比进行缩放到指定lable的大小
+        ui->textlabel->setAlignment(Qt::AlignCenter);//图片居中这个lable
+    }
+
+    QPixmap pixmaptextlableground(":/Icon/blue690x100.png");  //设置图片显示位置背景浅蓝色
+    if(!pixmaptextlableground.isNull()){
+        ui->datalable->clear();
+        QSize lableSize = pixmaptextlableground.size(); //设置大小为图片大小
+        //QSize lableSize = ui->datalable->size();//设置大小为图标大小
+        ui->datalable->setPixmap(pixmaptextlableground.scaled(lableSize,Qt::KeepAspectRatio,Qt::SmoothTransformation));  //将图片按照原来的宽高比进行缩放到指定lable的大小
+        // ui->datalable->setAlignment(Qt::AlignCenter);//图片居中这个lable
+    }
+
+    QPixmap pixmapbackground(":/Icon/things.png");  //设置图片显示位置背景浅蓝色
     if(!pixmapbackground.isNull()){
         ui->backgroundlabel->clear();
         //QSize lableSize = pixmapbackground.size(); //设置大小为图片大小
@@ -52,7 +72,6 @@ MainWindow::MainWindow(QWidget *parent)
         ui->backgroundlabel->setPixmap(pixmapbackground.scaled(lableSize,Qt::KeepAspectRatio,Qt::SmoothTransformation));  //将图片按照原来的宽高比进行缩放到指定lable的大小
         ui->backgroundlabel->setAlignment(Qt::AlignCenter);//图片居中这个lable
     }
-
     // QPixmap pixmapbarbackground(":/Icon/barbackground.png");  //顶部bar透明黑色背景
     // if(!pixmapbackground.isNull()){
     //     ui->label->clear();
@@ -86,12 +105,13 @@ void MainWindow::Init()
                       + "}");
     ui->mainWidget->setStyleSheet(mainStyle);
     // //设置投影效果
-    // QGraphicsDropShadowEffect *windowShadow;        //阴影效果
-    // windowShadow = new QGraphicsDropShadowEffect(this);
-    // windowShadow->setBlurRadius(30);
-    // windowShadow->setColor(QColor(0, 0, 0));
-    // windowShadow->setOffset(1, 1);
-    // ui->mainWidget->setGraphicsEffect(windowShadow);
+    QGraphicsDropShadowEffect *windowShadow;        //阴影效果
+    windowShadow = new QGraphicsDropShadowEffect(this);
+    windowShadow->setBlurRadius(5);
+    windowShadow->setColor(QColor(100, 100, 100));
+    windowShadow->setOffset(5, 5);
+
+    ui->centralwidget->setGraphicsEffect(windowShadow);
 }
 
 void MainWindow::setBackGround(const QString & filename)  //设置背景
@@ -142,6 +162,15 @@ void MainWindow::reflash_PicShow(){
 }
 void MainWindow::Button_OpenFile(){  //打开图片文件槽函数，返回这个文件的路径
 
+    QPixmap pixmapbackground(":/Icon/background.png");  //设置图片显示位置背景浅蓝色
+    if(!pixmapbackground.isNull()){
+        ui->backgroundlabel->clear();
+        //QSize lableSize = pixmapbackground.size(); //设置大小为图片大小
+        QSize lableSize = ui->backgroundlabel->size();//设置大小为图标大小
+        ui->backgroundlabel->setPixmap(pixmapbackground.scaled(lableSize,Qt::KeepAspectRatio,Qt::SmoothTransformation));  //将图片按照原来的宽高比进行缩放到指定lable的大小
+        ui->backgroundlabel->setAlignment(Qt::AlignCenter);//图片居中这个lable
+    }
+
     FilePath=QFileDialog::getOpenFileName(this,"OpenPicture-File 打开你想要转换的BMP格式文件(不能包含中文路径)",":/Picture","BMP-img(*.bmp)");
     sFilePath = FilePath.toStdString();
     sFilePath=Process.convertPath(sFilePath);   //转化路径格式为io流可以读取的格式 /*  "/"->"\\" */
@@ -161,9 +190,12 @@ void MainWindow::Button_OpenFile(){  //打开图片文件槽函数，返回这�
 
 }
 void MainWindow::Button_medianFilter(){
-    char bmp_name1[50] = "hqu.bmp"; // 输入BMP图像文件的名称
-    char bmp_name2[50] = "new.bmp"; // 输出BMP图像文件的名称
+    ui->stagelabel->clear();
+    ui->stagelabel->setText("Waitting");
+    ui->stagelabel->setAlignment(Qt::AlignCenter);//居中这个lable
+    // QThread::msleep(2000);//阻塞延时50ms
     Process.medianFilter(sFilePath,sFilePath_Out);//执行bmp处理函数
+    ui->stagelabel->setText("Finish");
     reflash_PicShow();
 
 }
