@@ -1,5 +1,32 @@
-# PhotoShop-Lite
-文件处理工具
+# PhotoShop-Lite 
+# 基于QT的简单BMP图像处理软件
+
+## 仓库结构
+### 1、[工程文件(Project)](https://github.com/Saturday-365/PhotoShop-Lite/tree/main/Project)
+QT原始工程文件 使用Cmake构建工程 构建套件为 QT 6.10.0 MSVC2022-64bit
+### 2、[原始代码(OrigionCODE)](https://github.com/Saturday-365/PhotoShop-Lite/tree/main/OrigionCODE) 
+无UI界面的简单菜单完成相应图像处理任务（即验收时的版本）
+### 3、[测试图片(TestPicture)](https://github.com/Saturday-365/PhotoShop-Lite/tree/main/TestPicture) 
+用于测试使用的24位BMP文件
+### 4、[文档报告(WordsFile)](https://github.com/Saturday-365/PhotoShop-Lite/tree/main/WordsFile) 
+课程报告
+### 5、[题目要求(request)](https://github.com/Saturday-365/PhotoShop-Lite/tree/main/request) 
+课程设计题目及要求文件
+### 6、[封包文件](https://github.com/Saturday-365/PhotoShop-Lite/blob/main/%E5%B0%81%E5%8C%85%E6%96%87%E4%BB%B6.zip) 
+最终封包文件 解压后 运行PhotoShop-Lite.exe文件
+软件操作流程为
+1、进入软件
+2、点击“选择图片”按钮
+3、在第一个弹出的窗口中选择原始图片文件
+4、选择后在第二个弹出的窗口中选择保存的图片路径，需要输入保存文件的名称如“XXX.BMP”
+5、选择完成后即可使用接下来的3个控件对图像进行处理
+6、只要不关闭子窗口，就能一直对原图像进行处理
+存在以下注意事项
+1、选择文件时不能包含中文路径
+2、在未选择文件时不能点击其他按钮
+2、再次选择文件时不能不选择退出
+
+## 日志
 | 日期 | 日志 |
 | :---: | :--- |
 | <i><b>2025.5.12 | 1、初步学习使用qt |
@@ -13,7 +40,7 @@
 | <i><b>2025.6.5 | 1、完善整个软件代码 <br>2、打包成exe文件 进行测失败 最终还是包成压缩包<br>3、报告|
 
 
-
+## 参考链接
 使用到的参考链接（5月27日看了报告文件后才知道需要收录这个文件）
 https://blog.csdn.net/sinat_36420785/article/details/81218049
 https://blog.csdn.net/keanight/article/details/79150637
