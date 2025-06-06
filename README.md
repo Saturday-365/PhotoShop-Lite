@@ -13,18 +13,18 @@ QT原始工程文件 使用Cmake构建工程 构建套件为 QT 6.10.0 MSVC2022-
 ### 5、[题目要求(request)](https://github.com/Saturday-365/PhotoShop-Lite/tree/main/request) 
 课程设计题目及要求文件
 ### 6、[封包文件](https://github.com/Saturday-365/PhotoShop-Lite/blob/main/%E5%B0%81%E5%8C%85%E6%96%87%E4%BB%B6.zip) 
-最终封包文件 解压后 运行PhotoShop-Lite.exe文件
-软件操作流程为
-1、进入软件
-2、点击“选择图片”按钮
-3、在第一个弹出的窗口中选择原始图片文件
-4、选择后在第二个弹出的窗口中选择保存的图片路径，需要输入保存文件的名称如“XXX.BMP”
-5、选择完成后即可使用接下来的3个控件对图像进行处理
-6、只要不关闭子窗口，就能一直对原图像进行处理
-存在以下注意事项
-1、选择文件时不能包含中文路径
-2、在未选择文件时不能点击其他按钮
-2、再次选择文件时不能不选择退出
+最终封包文件 解压后 运行PhotoShop-Lite.exe文件  
+软件操作流程为  
+1、进入软件  
+2、点击“选择图片”按钮  
+3、在第一个弹出的窗口中选择原始图片文件  
+4、选择后在第二个弹出的窗口中选择保存的图片路径，需要输入保存文件的名称如“XXX.BMP”  
+5、选择完成后即可使用接下来的3个控件对图像进行处理  
+6、只要不关闭子窗口，就能一直对原图像进行处理  
+存在以下注意事项  
+1、选择文件时不能包含中文路径  
+2、在未选择文件时不能点击其他按钮  
+2、再次选择文件时不能不选择退出  
 
 ## 日志
 | 日期 | 日志 |
@@ -42,19 +42,19 @@ QT原始工程文件 使用Cmake构建工程 构建套件为 QT 6.10.0 MSVC2022-
 
 ## 参考链接
 使用到的参考链接（5月27日看了报告文件后才知道需要收录这个文件）
-https://blog.csdn.net/sinat_36420785/article/details/81218049
-https://blog.csdn.net/keanight/article/details/79150637
-https://blog.csdn.net/qq_33485434/article/details/80680506 qstring和string转化
-https://blog.csdn.net/u012790503/article/details/119855465 槽函数相关探究
-https://www.cnblogs.com/LifeoFHanLiu/p/9978425.html getOpenFileName  getSaveFileName
-https://blog.csdn.net/jkjijijkv/article/details/119969325 弹出新窗口
-https://blog.csdn.net/yanghz/article/details/135004353 Qt6.5类库详解：QTextBrowse  看完详解后发现这个并不是我想要的 
-https://blog.csdn.net/qq_45652092/article/details/111183979 Qt中的Qlabel类（标签类）详解
-https://blog.csdn.net/qq_14945437/article/details/98730805 Qt之QSlider介绍(属性设置、信号、实现滑块移动到鼠标点击位置)
-https://blog.csdn.net/Sakuya__/article/details/105885764  QT 在子窗口中调用主窗口的UI
-https://blog.csdn.net/yy_xzz/article/details/148299320  Qt 窗口标志（Window Flags）详解：控制窗口样式与行为
-https://blog.csdn.net/qq_44084616/article/details/109612685
-https://juejin.cn/post/7186248005496864824  无边框窗口圆角
-https://blog.csdn.net/qq_44084616/article/details/109612685  无边框窗口移动
-https://blog.csdn.net/hiwoshixiaoyu/article/details/122468086 ui界面布局
-https://blog.csdn.net/rong11417/article/details/104000236 Qt延时/等待写法 阻塞延时/不阻塞延时/耗时代码的处理
+https://blog.csdn.net/sinat_36420785/article/details/81218049  
+https://blog.csdn.net/keanight/article/details/79150637  
+https://blog.csdn.net/qq_33485434/article/details/80680506 qstring和string转化  
+https://blog.csdn.net/u012790503/article/details/119855465 槽函数相关探究  
+https://www.cnblogs.com/LifeoFHanLiu/p/9978425.html getOpenFileName  getSaveFileName  
+https://blog.csdn.net/jkjijijkv/article/details/119969325 弹出新窗口  
+https://blog.csdn.net/yanghz/article/details/135004353 Qt6.5类库详解：QTextBrowse  看完详解后发现这个并不是我想要的   
+https://blog.csdn.net/qq_45652092/article/details/111183979 Qt中的Qlabel类（标签类）详解  
+https://blog.csdn.net/qq_14945437/article/details/98730805 Qt之QSlider介绍(属性设置、信号、实现滑块移动到鼠标点击位置)  
+https://blog.csdn.net/Sakuya__/article/details/105885764  QT 在子窗口中调用主窗口的UI  
+https://blog.csdn.net/yy_xzz/article/details/148299320  Qt 窗口标志（Window Flags）详解：控制窗口样式与行为  
+https://blog.csdn.net/qq_44084616/article/details/109612685  
+https://juejin.cn/post/7186248005496864824  无边框窗口圆角  
+https://blog.csdn.net/qq_44084616/article/details/109612685  无边框窗口移动  
+https://blog.csdn.net/hiwoshixiaoyu/article/details/122468086 ui界面布局  
+https://blog.csdn.net/rong11417/article/details/104000236 Qt延时/等待写法 阻塞延时/不阻塞延时/耗时代码的处理  
